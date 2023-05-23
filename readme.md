@@ -43,18 +43,9 @@
   <br />
 </div>
 
-- [**Lifecycles**](./docs/Lifecycles.md)
-  - [`useEffectOnce`](./docs/useEffectOnce.md) &mdash; a modified [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect) hook that only runs once.
-  - [`useEvent`](./docs/useEvent.md) &mdash; subscribe to events.
-  - [`useLifecycles`](./docs/useLifecycles.md) &mdash; calls `mount` and `unmount` callbacks.
-  - [`useMountedState`](./docs/useMountedState.md) and [`useUnmountPromise`](./docs/useUnmountPromise.md) &mdash; track if component is mounted.
-  - [`usePromise`](./docs/usePromise.md) &mdash; resolves promise only while component is mounted.
-  - [`useLogger`](./docs/useLogger.md) &mdash; logs in console as component goes through life-cycles.
-  - [`useMount`](./docs/useMount.md) &mdash; calls `mount` callbacks.
-  - [`useUnmount`](./docs/useUnmount.md) &mdash; calls `unmount` callbacks.
-  - [`useUpdateEffect`](./docs/useUpdateEffect.md) &mdash; run an `effect` only on updates.
-  - [`useIsomorphicLayoutEffect`](./docs/useIsomorphicLayoutEffect.md) &mdash; `useLayoutEffect` that that works on server.
-  - [`useDeepCompareEffect`](./docs/useDeepCompareEffect.md), [`useShallowCompareEffect`](./docs/useShallowCompareEffect.md), and [`useCustomCompareEffect`](./docs/useCustomCompareEffect.md)
+[Lifecycles](./docs/Lifecycles.md)
+  [`useMount`](./docs/useMount.md) &mdash; 只在组件初始化时执行。
+  [`useUnmount`](./docs/useUnmount.md) &mdash; 在组件卸载时执行的。
     <br/>
     <br/>
 - [**Sensors**](./docs/Sensors.md)

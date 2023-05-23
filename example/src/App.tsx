@@ -1,17 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import {test} from "../../packages/react-hooks";
+import { useMount, useUnmount } from "../../packages/react-hooks/src";
 import "./App.css";
+
+const Child = () => {
+  useMount(() => {
+    console.log("mount child");
+  });
+  useUnmount(() => {
+    console.log("unmount child");
+  });
+  return <>Child</>;
+};
 
 function App() {
   const [count, setCount] = useState(0);
-  useEffect(()=>{
-    test();
-  },[])
+  const [isShow, setIsShow] = useState<boolean>(false);
+  useMount(() => {
+    console.log("mount");
+    setIsShow(true);
+  });
+  useUnmount(() => {
+    console.log("unmount");
+  });
   return (
     <>
       <div>
+        {isShow && <Child />}
+        <button
+          onClick={() => {
+            setIsShow(!isShow);
+          }}
+        >
+          点击
+        </button>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
