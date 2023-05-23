@@ -43,9 +43,9 @@
   <br />
 </div>
 
-[Lifecycles](./docs/Lifecycles.md)
-  [`useMount`](./docs/useMount.md) &mdash; 只在组件初始化时执行。
-  [`useUnmount`](./docs/useUnmount.md) &mdash; 在组件卸载时执行的。
+-[Lifecycles]
+  - [`useMount`](./docs/useMount.md) &mdash; 只在组件初始化时执行。
+  - [`useUnmount`](./docs/useUnmount.md) &mdash; 在组件卸载时执行的。
     <br/>
     <br/>
 - [**Sensors**](./docs/Sensors.md)
