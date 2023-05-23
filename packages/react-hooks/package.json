@@ -1,0 +1,81 @@
+{
+  "name": "@latejs/react-hooks",
+  "version": "1.0.4",
+  "description": "业务常用的工具库",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -w -c",
+    "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
+    "clean": "rimraf dist",
+    "test": "jest --no-cache",
+    "prepublish": "yarn version && yarn build",
+    "lint": "eslint --fix --ext .ts,.js src",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "commitlint": "commitlint --config commitlint.config.js -e -V",
+    "commit": "git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "yarn lint",
+      "yarn format"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "utils",
+    "js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@rollup/plugin-commonjs": "^21.0.3",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.12.0",
+    "git-cz": "^4.8.0",
+    "husky": "3.1.0",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.7",
+    "prettier": "^2.6.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^27.1.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@types/big.js": "^6.1.3",
+    "@types/mime": "^2.0.3",
+    "big.js": "^6.1.1",
+    "dayjs": "^1.11.1",
+    "html2canvas": "^1.4.1",
+    "mime": "^3.0.0"
+  }
+}

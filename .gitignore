@@ -1,0 +1,13 @@
+.idea
+.vscode
+*.map
+.DS_Store
+dist-ssr
+*.local
+dist
+node_modules
+package-lock.json
+yarn-error.log
+.pnpm-debug.log
+package/**/node_modules
+package/**/.pnpm-debug.log
