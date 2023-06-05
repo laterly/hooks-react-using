@@ -17,6 +17,7 @@
     <br/>
 ### State
   - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
+  - [`useLocalStorageState`](./docs/state/use-local-storage-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
     <br/>
     <br/>
 ### Effect

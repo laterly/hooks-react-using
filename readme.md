@@ -18,6 +18,7 @@
 ### State
   - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state 的 Hooks。
   - [`useDebounce`](./docs/state/use-debounce/useDebounce.md) &mdash;useDebounce 控制值在多次更新的防抖。
+  - [`useLocalStorageState`](./docs/state/use-local-storage-state/useLocalStorageState.md) &mdash;useLocalStorageState 将状态持久化到本地存储中
     <br/>
     <br/>
 ### Effect
