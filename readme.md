@@ -11,12 +11,12 @@
 </div>
 
 ### Lifecycles
-  - [`useMount`](./docs/life-cycle/use-mount/useMount.md) &mdash; 只在组件初始化时执行。
-  - [`useUnmount`](./docs/life-cycle/use-unmount/useUnmount.md) &mdash; 在组件卸载时执行的。
+  - [`useMount`](./docs/life-cycle/use-mount/useMount.md) &mdash; useMount只在组件初始化时执行。
+  - [`useUnmount`](./docs/life-cycle/use-unmount/useUnmount.md) &mdash; useUnmount在组件卸载时执行的。
     <br/>
     <br/>
 ### State
-  - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
+  - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
   - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 可以有效地控制函数在多次触发中只会执行一次,接受两个参数：需要执行防抖操作的函数和可选的防抖选项。
     <br/>
     <br/>
