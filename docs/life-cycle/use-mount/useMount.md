@@ -6,7 +6,7 @@
 
 ```jsx
 import React, { useState } from "react";
-import { useMount } from "@latejs/react-hooks";
+import { useMount } from "@late-js/react-hooks";
 
 const DemoChild = () => {
   useMount(() => console.log("mount"));
@@ -14,7 +14,7 @@ const DemoChild = () => {
 };
 
 const Demo = () => {
-  const [isShow, setIsShow] = useState < boolean > false;
+  const [isShow, setIsShow] = useState <boolean>(false);
   return (
     <>
       {isShow && <DemoChild />}

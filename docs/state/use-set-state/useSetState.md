@@ -1,10 +1,12 @@
 # useSetState
 
-管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
+管理 object 类型 state 的 Hooks，用法与 class 组件的 this.setState 基本一致。
 
 ### 基础用法
 
 ```tsx
+import React from "react";
+import { useSetState } from "@late-js/react-hooks";
 //使用例子
 interface UserInfo {
   age?: number;

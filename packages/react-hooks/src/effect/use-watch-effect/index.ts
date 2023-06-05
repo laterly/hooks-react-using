@@ -4,7 +4,7 @@ type Config = {
   immediate: boolean;
 };
 
-function useWatch<T>(
+function useWatchEffect<T>(
   dep: T,
   callback: Callback<T>,
   config: Config = { immediate: false },
@@ -34,4 +34,4 @@ function useWatch<T>(
     stop.current = true;
   };
 }
-export default useWatch;
+export default useWatchEffect;
