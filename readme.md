@@ -17,10 +17,10 @@
     <br/>
 ### State
   - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
+  - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 可以有效地控制函数在多次触发中只会执行一次,接受两个参数：需要执行防抖操作的函数和可选的防抖选项。
     <br/>
     <br/>
 ### Effect
   - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销，它接收两个参数：要监听的变量和监听函数
-  - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 可以有效地控制函数在多次触发中只会执行一次,接受两个参数：需要执行防抖操作的函数和可选的防抖选项。它会返回一个对象，其中包含三个方法：run、cancel 和 flush。
     <br/>
     <br/>
