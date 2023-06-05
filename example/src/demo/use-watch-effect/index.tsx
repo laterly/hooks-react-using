@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useWatchEffect } from "../../../../packages/react-hooks/src/";
+import { useWatchEffect } from "../../../../packages/react-hooks/src";
 
 const Example: React.FC = () => {
   const [prev, setPrev] = useState(0);
@@ -7,7 +7,9 @@ const Example: React.FC = () => {
   const stop = useWatchEffect(count, (curVal, oldVal) => {
     console.log("旧值oldVal: ", oldVal);
     console.log("新值curVal: ", curVal);
-    setPrev(oldVal!);
+    if (oldVal) {
+      setPrev(oldVal);
+    }
   });
   const add = () => setCount((prevCount) => prevCount + 1);
   return (
