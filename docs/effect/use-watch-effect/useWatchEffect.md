@@ -38,6 +38,10 @@ export default Example;
 ## API
 
 ```typescript
+type Callback<T> = (dep: T, prev: T | undefined) => void;
+type Config = {
+  immediate: boolean;
+};
 const stop = useWatchEffect<T>(
   dep: T,
   callback: Callback<T>,
