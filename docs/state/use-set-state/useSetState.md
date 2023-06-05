@@ -1,6 +1,6 @@
 # useSetState
 
-管理 object 类型 state 的 Hooks，用法与 class 组件的 this.setState 基本一致。
+管理 object 类型 state 的 Hooks
 
 ### 基础用法
 
