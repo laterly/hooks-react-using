@@ -8,7 +8,7 @@ useWatchEffect 可以观察值的变化，并且可以中止观察，减少不�
 //导入模块
 import React, { useState } from "react";
 import { Button } from "antd";
-import { useWatchEffect } from "@late-js/react-hooks";
+import { useWatchEffect } from "hooks-react-using";
 
 const Example: React.FC = () => {
   const [prev, setPrev] = useState(0);
