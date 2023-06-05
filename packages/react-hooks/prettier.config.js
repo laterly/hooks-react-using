@@ -6,5 +6,5 @@ module.exports = {
   arrowParens: 'avoid', //(x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
   endOfLine: 'auto', // // 结尾是 \n \r \n\r auto
   bracketSpacing: true, //在对象，数组括号与文字之间加空格 "{ foo: bar }"
-  ignorePath: './.prettierignore', // 不使用prettier格式化的文件填写在项目的.prettierignore文件中
+  ignorePath: '.prettierignore', // 不使用prettier格式化的文件填写在项目的.prettierignore文件中
 };

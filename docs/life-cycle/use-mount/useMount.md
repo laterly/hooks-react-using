@@ -1,17 +1,15 @@
 # useUnmount
 
-在组件卸载（unmount）时执行的 Hook。
-
-## 代码演示
+在组件挂载载时执行的
 
 ### 基础用法
 
 ```jsx
 import React, { useState } from "react";
-import { useUnmount } from "@latejs/react-hooks";
+import { useMount } from "@latejs/react-hooks";
 
 const DemoChild = () => {
-  useUnmount(() => console.log("unmount"));
+  useMount(() => console.log("mount"));
   return null;
 };
 
@@ -39,8 +37,3 @@ const Demo = () => {
 useUnmount(fn: () => void);
 ```
 
-### 参数
-
-| 参数 | 说明                 | 类型         | 默认值 |
-| ---- | -------------------- | ------------ | ------ |
-| fn   | 组件卸载时执行的函数 | `() => void` | -      |
