@@ -17,10 +17,11 @@
     <br/>
 ### State
   - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state 的 Hooks。
-  - [`useDebounceFn`](./docs/state/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 控制函数在多次触发中只会执行一次。
+  - [`useDebounce`](./docs/state/use-debounce/useDebounce.md) &mdash;useDebounce 控制值在多次更新的防抖。
     <br/>
     <br/>
 ### Effect
   - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销。
+   - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 控制函数在多次触发的防抖。
     <br/>
     <br/>
