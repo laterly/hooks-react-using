@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash-es';
 import type { DebounceSettings } from 'lodash-es/debounce';
 
@@ -15,15 +15,19 @@ function useDebounceFn<T extends (...args: any[]) => any>(
   fnRef.current = fn;
 
   const debouncedFn = useMemo(() => {
-    const {
-      wait = 1000,
-      ...restOptions
-    } = options || {};
+    const { wait = 1000, ...restOptions } = options || {};
 
     return debounce(fnRef.current, wait, {
       ...restOptions,
     });
   }, []);
+
+  useEffect(
+    () => () => {
+      debouncedFn.cancel?.();
+    },
+    [],
+  );
 
   return {
     run: debouncedFn,
