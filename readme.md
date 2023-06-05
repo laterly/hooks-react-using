@@ -1,13 +1,13 @@
 <div>
   <h1>
-    hooks-react-using/src
+    hooks-react-using
   </h1>
   <sup>
-    <a href="https://www.npmjs.com/package/hooks-react-using/src">
-       <img src="https://img.shields.io/npm/v/hooks-react-using/src.svg" alt="npm package" />
+    <a href="https://www.npmjs.com/package/hooks-react-using">
+       <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
   </sup>
-  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using/src">hooks-react-using/src</a></pre>
+  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using/src</a></pre>
 </div>
 
 ### Lifecycles
