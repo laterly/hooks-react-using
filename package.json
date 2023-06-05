@@ -1,5 +1,5 @@
 {
-  "name": "latejs-core",
+  "name": "hooks-react-using-core",
   "version": "1.0.0",
   "description": "monorepo包",
   "main": "index.js",
@@ -22,6 +22,6 @@
     "vue": "^3.2.33"
   },
   "dependencies": {
-    "@latejs/react-hooks": "workspace:^1.0.0"
+    "hooks-react-using": "workspace:^1.0.0"
   }
 }

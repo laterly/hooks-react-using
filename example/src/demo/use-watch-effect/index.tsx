@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useWatchEffect } from "../../../../packages/react-hooks/src";
+import { useWatchEffect } from "../../../../packages/hooks-react-using/src";
 
 const Example: React.FC = () => {
   const [prev, setPrev] = useState(0);

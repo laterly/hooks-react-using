@@ -6,7 +6,7 @@
 
 ```tsx
 import React from "react";
-import { useSetState } from "hooks-react-using";
+import { useSetState } from "hooks-react-using/src";
 //使用例子
 interface UserInfo {
   age?: number;

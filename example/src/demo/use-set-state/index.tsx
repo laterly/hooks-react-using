@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSetState } from "../../../../packages/react-hooks/src";
+import { useSetState } from "../../../../packages/hooks-react-using/src";
 
 //使用例子
 interface UserInfo {
