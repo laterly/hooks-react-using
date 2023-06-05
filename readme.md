@@ -16,8 +16,8 @@
     <br/>
     <br/>
 ### State
-  - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
-  - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 可以有效地控制函数在多次触发中只会执行一次。
+  - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state 的 Hooks。
+  - [`useDebounceFn`](./docs/state/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 控制函数在多次触发中只会执行一次。
     <br/>
     <br/>
 ### Effect
