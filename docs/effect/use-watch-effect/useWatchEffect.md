@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useWatchEffect 可以监听值的变化，可以获取值的新值和旧值，它接收两个参数：要监听的变量和监听函数
+useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销，它接收两个参数：要监听的变量和监听函数
 
 ### 基础用法
 
@@ -8,7 +8,7 @@ useWatchEffect 可以监听值的变化，可以获取值的新值和旧值，�
 //导入模块
 import React, { useState } from "react";
 import { Button } from "antd";
-import useWatchEffect from "@late-js/react-hooks";
+import { useWatchEffect } from "@late-js/react-hooks";
 
 const Example: React.FC = () => {
   const [prev, setPrev] = useState(0);
@@ -21,7 +21,6 @@ const Example: React.FC = () => {
   const add = () => setCount((prevCount) => prevCount + 1);
   return (
     <div>
-      {" "}
       <p> 当前的count是{count}</p> <p> 前一次的count是{prev}</p> {count} <Button
         onClick={add}
         className="btn"
@@ -29,7 +28,7 @@ const Example: React.FC = () => {
         +
       </Button> <Button onClick={stop} className="btn">
         中止观察
-      </Button>{" "}
+      </Button>
     </div>
   );
 };

@@ -53,7 +53,7 @@
     <br/>
     <br/>
 ### Effect
-  - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; 可以监听值的变化，可以获取值的新值和旧值，它接收两个参数：要监听的变量和监听函数
+  - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销，它接收两个参数：要监听的变量和监听函数
   - [`useUnmount`](./docs/life-cycle/use-unmount/useUnmount.md) &mdash; 在组件卸载时执行的。
     <br/>
     <br/>
