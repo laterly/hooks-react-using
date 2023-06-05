@@ -6,7 +6,7 @@
 
 ```jsx
 import React, { useState } from "react";
-import { useMount } from "hooks-react-using/src";
+import { useMount } from "hooks-react-using";
 
 const DemoChild = () => {
   useMount(() => console.log("mount"));
