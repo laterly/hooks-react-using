@@ -1,6 +1,6 @@
 # useDebounceFn
 
-useDebounceFn 可以有效地控制函数在多次触发中只会执行一次,接受两个参数：需要执行防抖操作的函数和可选的防抖选项。它会返回一个对象，其中包含三个方法：run、cancel 和 flush。
+useDebounceFn 可以有效地控制函数在多次触发中只会执行一次,防抖
 
 ### 基础用法
 
@@ -34,7 +34,14 @@ interface Options {
   maxWait?: number | undefined;
   trailing?: boolean | undefined;
 }
-const { run, cancel, flush } = useDebounceFn(() => void,{ wait: Options });
+const {
+  run,
+  cancel,
+  flush
+} = useDebounceFn(
+  fn: (...args: any[]) => any,
+  options?: Options
+);
 ```
 
 ## 参数

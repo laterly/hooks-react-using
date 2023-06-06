@@ -44,12 +44,12 @@ interface Options {
   maxWait?: number;
   trailing?: boolean;
 }
-const debounceValue = useDebounce(() => void,{ wait: Options });
+const debounceValue = useDebounce(value:T,{ wait: Options });
 ```
 
 ## 参数
 
-- func (Function): 要防抖动的函数。
+- value (T): 要防抖动的值。
 - [wait=1000] (number): 需要延迟的毫秒数。
 - [options=] (Object): 选项对象。
 - [options.leading=false] (boolean): 指定在延迟开始前调用。
