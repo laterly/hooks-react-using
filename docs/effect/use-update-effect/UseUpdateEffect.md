@@ -1,6 +1,6 @@
 # useUpdateEffect
 
-useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
+useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染    
 
 ### 基础用法
 
