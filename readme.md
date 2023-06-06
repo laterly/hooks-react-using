@@ -16,6 +16,8 @@
 
 <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 
+## Usage
+
 ### Lifecycles
 
 - [`useMount`](./docs/life-cycle/use-mount/useMount.md) &mdash; useMount 只在组件初始化时执行。
