@@ -14,7 +14,6 @@ const UseThrottleEffectDemo: React.FC = () => {
   useThrottleEffect(
     () => {
       setRecord([...record, search]);
-      console.log('jinlai1');
     },
     [search],
     {
