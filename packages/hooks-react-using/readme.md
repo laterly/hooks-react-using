@@ -11,16 +11,34 @@
 </div>
 
 ### Lifecycles
-  - [`useMount`](./docs/life-cycle/use-mount/useMount.md) &mdash; 只在组件初始化时执行。
-  - [`useUnmount`](./docs/life-cycle/use-unmount/useUnmount.md) &mdash; 在组件卸载时执行的。
-    <br/>
-    <br/>
+
+- [`useMount`](./docs/life-cycle/use-mount/useMount.md) &mdash; useMount 只在组件初始化时执行。
+- [`useUnmount`](./docs/life-cycle/use-unmount/useUnmount.md) &mdash; useUnmount 在组件卸载时执行的。
+  <br/>
+  <br/>
+
 ### State
-  - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
-  - [`useLocalStorageState`](./docs/state/use-local-storage-state/useSetState.md) &mdash; 管理 object 类型 state 的 Hooks，使用 useSetState 可以使得更新状态更加方便，并且不需要手动合并之前的状态。
-    <br/>
-    <br/>
+
+- [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState 管理 object 类型 state
+- [`useDebounce`](./docs/state/use-debounce/useDebounce.md) &mdash; useDebounce 控制值在多次更新的防抖。
+- [`useThrottle`](./docs/state/use-thtottle/useThrottle.md) &mdash; useThrottle 控制值在多次更新的节流。
+- [`useLocalStorageState`](./docs/state/use-local-storage-state/useLocalStorageState.md) &mdash; useLocalStorageState 将状态持久化到 localStorage 本地存储中
+- [`useSessionStorageState`](./docs/state/use-session-storage-state/useSessionStorageState.md) &mdash; useSessionStorageState 将状态持久化到 sessionStorage 本地存储中
+- [`usePrevious`](./docs/state/use-previous/usePrevious.md) &mdash; usePrevious 用来获取组件上一次渲染时某个状态或属性的值
+  <br/>
+  <br/>
+
 ### Effect
-  - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销，它接收两个参数：要监听的变量和监听函数
-    <br/>
-    <br/>
+
+- [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销。
+- [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash; useDebounceFn 控制函数在多次触发的防抖。
+- [`useDebounceEffect`](./docs/effect/use-debounce-effect/useDebounceEffect.md) &mdash; useDebounceEffect 可以有效地控制 useEffect 防抖。
+- [`useThrottleFn`](./docs/effect/use-throttle-fn/useThrottleFn.md) &mdash; useThrottleFn 限制函数的执行频率，节流。
+- [`useThrottleEffect`](./docs/effect/use-throttle-effect/useThrottleEffect.md) &mdash; useThrottleEffect 可以有效地控制 useEffect 节流。
+- [`useUpdateEffect`](./docs/effect/use-update-effect/useUpdateEffect.md) &mdash; useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
+- [`useUpdateLayoutEffect`](./docs/effect/use-update-layout-effect/useUpdateLayoutEffect.md) &mdash; useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染
+- [`useAsyncEffect`](./docs/effect/use-async-effect/useAsyncEffect.md) &mdash; useAsyncEffect 与 useEffect 类似，可以使用异步函数
+- [`useDeepCompareEffect`](./docs/effect/use-deep-compare-effect/useDeepCompareEffect.md) &mdash; useDeepCompareEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
+- [`useDeepCompareLayoutEffect`](./docs/effect/use-deep-compare-layout-effect/useDeepCompareLayoutEffect.md) &mdash; useDeepCompareLayoutEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
+  <br/>
+  <br/>
