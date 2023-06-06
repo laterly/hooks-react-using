@@ -5,6 +5,7 @@ import useDebounce from './state/use-debounce';
 import useThrottle from './state/use-throttle';
 import useLocalStorageState from './state/use-local-storage-state';
 import useSessionStorageState from './state/use-session-storage-state';
+import usePrevious from './state/use-previous';
 import useWatchEffect from './effect/use-watch-effect';
 import useDebounceFn from './effect/use-debounce-fn';
 import useDebounceEffect from './effect/use-debounce-effect';
@@ -19,6 +20,7 @@ export {
   useThrottle,
   useLocalStorageState,
   useSessionStorageState,
+  usePrevious,
 };
 export {
   useWatchEffect,

@@ -11,6 +11,7 @@ import UseUpdateEffectDemo from "./demo/use-update-effect";
 import UseUpdateLayoutEffectDemo from './demo/use-update-layout-effect'
 import UseThrottleFnDemo from "./demo/use-throttle-fn";
 import UseThrottleEffectDemo from './demo/use-throttle-effect';
+import UsePreviousDemo from './demo/use-previous';
 const App: React.FC = () => {
   return (
     <>
@@ -38,6 +39,8 @@ const App: React.FC = () => {
       <UseUpdateEffectDemo />
       <h3>UseUpdateLayoutEffectDemo</h3>
       <UseUpdateLayoutEffectDemo />
+      <h3>UsePreviousDemo</h3>
+      <UsePreviousDemo />
     </>
   );
 };
