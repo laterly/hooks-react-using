@@ -18,7 +18,7 @@
 ### State
   - [`useSetState`](./docs/state/use-set-state/useSetState.md) &mdash; useSetState管理 object 类型 state
   - [`useDebounce`](./docs/state/use-debounce/useDebounce.md) &mdash;useDebounce 控制值在多次更新的防抖。
-  - [`useThrottle`](./docs/state/use-throttle/useThrottle.md) &mdash;useThrottle 控制值在多次更新的防抖。
+  - [`useThrottle`](./docs/state/use-thtottle/useThrottle.md) &mdash;useThrottle 控制值在多次更新的节流。
   - [`useLocalStorageState`](./docs/state/use-local-storage-state/useLocalStorageState.md) &mdash;useLocalStorageState 将状态持久化到localStorage本地存储中
   - [`useSessionStorageState`](./docs/state/use-session-storage-state/useSessionStorageState.md) &mdash;useSessionStorageState 将状态持久化到sessionStorage本地存储中
     <br/>
