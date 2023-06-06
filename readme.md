@@ -7,8 +7,15 @@
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
   </sup>
-  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
+  
 </div>
+[![NPM version](https://badgen.net/npm/v/hooks-react-using)](https://www.npmjs.com/package/hooks-react-using) [![Test build status](https://github.com/danoc/hooks-react-using/workflows/Test/badge.svg)](https://github.com/danoc/hooks-react-using/actions?query=workflow%3ATest) [![Bundle size](https://badgen.net/bundlephobia/min/hooks-react-using?label=size)](https://bundlephobia.com/result?p=hooks-react-using) [![Bundle size](https://badgen.net/bundlephobia/minzip/hooks-react-using?label=gzip%20size)](https://bundlephobia.com/result?p=hooks-react-using)
+
+> React Hooks 库
+
+## Install
+
+<pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 
 ### Lifecycles
 
