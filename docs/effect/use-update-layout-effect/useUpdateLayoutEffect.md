@@ -1,4 +1,4 @@
-# useUpdateEffect
+# useUpdateLayoutEffect 
 
 useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染    
 
