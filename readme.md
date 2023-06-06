@@ -32,5 +32,6 @@
    - [`useThrottleEffect`](./docs/effect/use-throttle-effect/useThrottleEffect.md) &mdash;useThrottleEffect 可以有效地控制useEffect节流。
    - [`useUpdateEffect`](./docs/effect/use-update-effect/useUpdateEffect.md) &mdash;useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
    - [`useUpdateLayoutEffect`](./docs/effect/use-update-layout-effect/useUpdateLayoutEffect.md) &mdash;useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染
+    - [`useAsyncEffect`](./docs/effect/use-async-effect/useAsyncEffect.md) &mdash;useAsyncEffect 与 useEffect 类似，可以使用异步函数
     <br/>
     <br/>
