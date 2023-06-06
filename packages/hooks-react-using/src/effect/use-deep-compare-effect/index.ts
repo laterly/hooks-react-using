@@ -5,10 +5,12 @@ const useDeepCompareEffect = (
   deps?: React.DependencyList,
 ) => {
   const refDeps = useRef<React.DependencyList>();
+  const signalRef = useRef(false);
   if (!isEqual(deps, refDeps.current)) {
     refDeps.current = deps;
+    signalRef.current = !signalRef.current;
   }
-  useEffect(effect, refDeps.current);
+  useEffect(effect, [signalRef.current]);
 
 };
 export default useDeepCompareEffect;
