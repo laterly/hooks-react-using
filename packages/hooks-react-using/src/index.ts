@@ -8,6 +8,7 @@ import useWatchEffect from './effect/use-watch-effect';
 import useDebounceFn from './effect/use-debounce-fn';
 import useDebounceEffect from './effect/use-debounce-effect';
 import useUpdateEffect from './effect/use-update-effect';
+import useUpdateLayoutEffect from './effect/use-update-layout-effect';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -15,4 +16,10 @@ export {
   useLocalStorageState,
   useSessionStorageState,
 };
-export { useWatchEffect, useDebounceFn, useDebounceEffect, useUpdateEffect };
+export {
+  useWatchEffect,
+  useDebounceFn,
+  useDebounceEffect,
+  useUpdateEffect,
+  useUpdateLayoutEffect,
+};

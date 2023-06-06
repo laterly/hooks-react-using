@@ -7,6 +7,7 @@ import UseLocalStorageStateDemo from './demo/use-local-storage-state';
 import UseSessionStorageStateDemo from './demo/use-session-storage-state';
 import UseDebounceEffectDemo from "./demo/use-debounce-effect";
 import UseUpdateEffectDemo from "./demo/use-update-effect";
+import UseUpdateLayoutEffectDemo from './demo/use-update-layout-effect'
 const App: React.FC = () => {
   return (
     <>
@@ -26,6 +27,8 @@ const App: React.FC = () => {
       <UseDebounceEffectDemo />
       <h3>UseUpdateEffectDemo</h3>
       <UseUpdateEffectDemo />
+      <h3>UseUpdateLayoutEffectDemo</h3>
+      <UseUpdateLayoutEffectDemo />
     </>
   );
 };

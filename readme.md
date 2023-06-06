@@ -27,5 +27,6 @@
    - [`useDebounceFn`](./docs/effect/use-debounce-fn/useDebounceFn.md) &mdash;useDebounceFn 控制函数在多次触发的防抖。
    - [`useDebounceEffect`](./docs/effect/use-debounce-effect/useDebounceEffect.md) &mdash;useDebounceEffect 可以有效地控制useEffect防抖。
    - [`useUpdateEffect`](./docs/effect/use-update-effect/useUpdateEffect.md) &mdash;useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
+   - [`useUpdateLayoutEffect`](./docs/effect/use-update-layout-effect/useUpdateLayoutEffect.md) &mdash;useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染
     <br/>
     <br/>
