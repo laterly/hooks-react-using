@@ -3,7 +3,8 @@ import UseSetStateDemo from "./demo/use-set-state";
 import UseWatchEffectDemo from "./demo/use-watch-effect";
 import UseDebounceFnDemo from "./demo/use-debounce-fn";
 import UseDebounceDemo from "./demo/use-debounce";
-import UseLocalStorageState from './demo/use-local-storage-state'
+import UseLocalStorageStateDemo from './demo/use-local-storage-state';
+import UseSessionStorageStateDemo from './demo/use-session-storage-state';
 const App: React.FC = () => {
   return (
     <>
@@ -16,7 +17,9 @@ const App: React.FC = () => {
       <h3>UseDebounceDemo</h3>
       <UseDebounceDemo />
       <h3>UseLocalStorageState</h3>
-      <UseLocalStorageState />
+      <UseLocalStorageStateDemo />
+      <h3>UseSessionStorageState</h3>
+      <UseSessionStorageStateDemo />
     </>
   );
 };

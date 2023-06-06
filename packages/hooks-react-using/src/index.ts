@@ -3,8 +3,14 @@ import useUnmount from './life-cycle/use-unmount';
 import useSetState from './state/use-set-state';
 import useDebounce from './state/use-debounce';
 import useLocalStorageState from './state/use-local-storage-state';
+import useSessionStorageState from './state/use-session-storage-state';
 import useWatchEffect from './effect/use-watch-effect';
 import useDebounceFn from './effect/use-debounce-fn';
 export { useMount, useUnmount };
-export { useSetState, useDebounce,useLocalStorageState };
+export {
+  useSetState,
+  useDebounce,
+  useLocalStorageState,
+  useSessionStorageState,
+};
 export { useWatchEffect, useDebounceFn };
