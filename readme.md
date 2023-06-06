@@ -7,16 +7,8 @@
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
   </sup>
-  
+  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 </div>
-
-> React Hooks 库
-
-## Install
-
-<pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
-
-## Usage
 
 ### Lifecycles
 
