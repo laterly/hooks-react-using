@@ -5,6 +5,7 @@ import UseDebounceFnDemo from "./demo/use-debounce-fn";
 import UseDebounceDemo from "./demo/use-debounce";
 import UseLocalStorageStateDemo from './demo/use-local-storage-state';
 import UseSessionStorageStateDemo from './demo/use-session-storage-state';
+import UseDebounceEffectDemo from "./demo/use-debounce-effect";
 const App: React.FC = () => {
   return (
     <>
@@ -20,6 +21,8 @@ const App: React.FC = () => {
       <UseLocalStorageStateDemo />
       <h3>UseSessionStorageState</h3>
       <UseSessionStorageStateDemo />
+      <h3>UseDebounceEffectDemo</h3>
+      <UseDebounceEffectDemo />
     </>
   );
 };

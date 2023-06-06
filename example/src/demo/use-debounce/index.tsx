@@ -6,11 +6,6 @@ const Example: React.FC = () => {
     wait: 500,
   });
 
-  // API请求等操作都可以放在这里执行
-  useEffect(() => {
-    console.log("Debounced Value: ", debouncedValue);
-  }, [debouncedValue]);
-
   return (
     <div>
       <label>Value:</label>
@@ -22,6 +17,8 @@ const Example: React.FC = () => {
           setValue(e.target.value);
         }}
       />
+      <label>debouncedValue:</label>
+      <div>{debouncedValue}</div>
     </div>
   );
 };

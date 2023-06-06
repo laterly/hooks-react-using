@@ -2,7 +2,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import { debounce } from 'lodash-es';
 import type { DebounceSettings } from 'lodash-es/debounce';
 
-interface Options extends DebounceSettings {
+export interface Options extends DebounceSettings {
   wait?: number;
 }
 

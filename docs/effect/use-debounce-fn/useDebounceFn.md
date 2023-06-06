@@ -29,6 +29,7 @@ export default Excample;
 
 ```typescript
 interface Options {
+  wait?:number,
   leading?: boolean | undefined;
   maxWait?: number | undefined;
   trailing?: boolean | undefined;

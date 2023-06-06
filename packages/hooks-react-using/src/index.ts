@@ -6,6 +6,7 @@ import useLocalStorageState from './state/use-local-storage-state';
 import useSessionStorageState from './state/use-session-storage-state';
 import useWatchEffect from './effect/use-watch-effect';
 import useDebounceFn from './effect/use-debounce-fn';
+import useDebounceEffect from './effect/use-debounce-effect';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -13,4 +14,4 @@ export {
   useLocalStorageState,
   useSessionStorageState,
 };
-export { useWatchEffect, useDebounceFn };
+export { useWatchEffect, useDebounceFn, useDebounceEffect };
