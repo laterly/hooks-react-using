@@ -14,6 +14,8 @@ import useThrottleEffect from './effect/use-throttle-effect';
 import useUpdateEffect from './effect/use-update-effect';
 import useUpdateLayoutEffect from './effect/use-update-layout-effect';
 import useAsyncEffect from './effect/use-async-effect';
+import useDeepCompareEffect from './effect/use-deep-compare-effect';
+import useDeepCompareLayoutEffect from './effect/use-deep-compare-layout-effect';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -32,4 +34,6 @@ export {
   useUpdateEffect,
   useUpdateLayoutEffect,
   useAsyncEffect,
+  useDeepCompareEffect,
+  useDeepCompareLayoutEffect,
 };
