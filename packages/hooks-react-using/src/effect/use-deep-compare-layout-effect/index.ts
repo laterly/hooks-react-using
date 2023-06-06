@@ -1,15 +1,9 @@
-import { useLayoutEffect, useRef } from 'react';
-import { isEqual } from 'lodash-es';
+import { useLayoutEffect } from 'react';
+import { useDeepCompare } from '../use-deep-compare-effect';
 const useDeepCompareLayoutEffect = (
   effect: React.EffectCallback,
   deps?: React.DependencyList,
 ) => {
-  const refDeps = useRef<React.DependencyList>();
-  const signalRef = useRef(false);
-  if (!isEqual(deps, refDeps.current)) {
-    refDeps.current = deps;
-    signalRef.current = !signalRef.current;
-  }
-  useLayoutEffect(effect, [signalRef.current]);
+  useLayoutEffect(effect, useDeepCompare(deps));
 };
 export default useDeepCompareLayoutEffect;
