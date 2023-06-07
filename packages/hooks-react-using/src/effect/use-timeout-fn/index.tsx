@@ -14,6 +14,7 @@ const useTimeoutFn = (
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
+  const effectCallback = useRef(effect);
   const [isReady, setIsReady] = useState<boolean>(false);
   const timerRef = useRef<number | null>(null);
 
@@ -22,7 +23,7 @@ const useTimeoutFn = (
     cancel();
     timerRef.current = window.setTimeout(() => {
       setIsReady(true);
-      effect();
+      effectCallback.current();
     }, delay);
 
     return () => {
@@ -34,10 +35,15 @@ const useTimeoutFn = (
 
   const cancel = useCallback(() => {
     if (timerRef.current) {
+      setIsReady(false);
       window.clearTimeout(timerRef.current);
       timerRef.current = null;
     }
   }, []);
+
+  useEffect(() => {
+    effectCallback.current = effect;
+  }, [effect]);
 
   useEffect(() => {
     run();

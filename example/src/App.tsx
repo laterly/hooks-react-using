@@ -16,6 +16,8 @@ import UseAsyncEffectDemo from './demo/use-async-effect';
 import UseDeepCompareEffectDemo from "./demo/use-deep-compare-effect";
 import UseTimeoutFnDemo from "./demo/use-timeout-fn";
 import UseRafTimeoutFnDemo from "./demo/use-raf-timeout-fn";
+import UseIntervalFnDemo from './demo/use-interval-fn';
+import UseRafIntervalFnDemo from "./demo/use-raf-interval-fn";
 const App: React.FC = () => {
   return (
     <>
@@ -53,6 +55,10 @@ const App: React.FC = () => {
       <UseTimeoutFnDemo />
       <h3>UseRafTimeoutFnDemo</h3>
       <UseRafTimeoutFnDemo />
+      <h3>UseIntervalFnDemo</h3>
+      <UseIntervalFnDemo />
+      <h3>UseRafIntervalFnDemo</h3>
+      <UseRafIntervalFnDemo />
     </>
   );
 };

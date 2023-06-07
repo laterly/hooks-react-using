@@ -18,6 +18,8 @@ import useDeepCompareEffect from './effect/use-deep-compare-effect';
 import useDeepCompareLayoutEffect from './effect/use-deep-compare-layout-effect';
 import useTimeoutFn from './effect/use-timeout-fn';
 import useRafTimeoutFn from './effect/use-raf-timeout-fn';
+import useIntervalFn from './effect/use-interval-fn';
+import useRafIntervalFn from './effect/use-raf-interval-fn';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -40,4 +42,6 @@ export {
   useDeepCompareLayoutEffect,
   useTimeoutFn,
   useRafTimeoutFn,
+  useIntervalFn,
+  useRafIntervalFn,
 };

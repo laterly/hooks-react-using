@@ -1,21 +1,25 @@
 import { isNumber } from 'lodash-es';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-type UseRafTimeoutFnTeturn = {
-  isReady: boolean;
+type UseRafIntervalFnTeturn = {
+  isRunning: boolean;
   cancel: () => void; //取消定时器
   reset: () => void; //重新执行定时器
+};
+
+export type UseRafIntervalFnOptions = {
+  immediate?: boolean;
 };
 
 type Timer = {
   id: number;
 };
 
-const setRafTimeout = (fn: () => void, delay = 0) => {
+const setRafInterval = (fn: () => void, delay = 0) => {
   const timer: Timer = {
     id: 0,
   };
-  const start = new Date().getTime();
+  let start = new Date().getTime();
   const step = () => {
     const current = new Date().getTime();
 
@@ -23,42 +27,50 @@ const setRafTimeout = (fn: () => void, delay = 0) => {
 
     if (elapsed >= delay) {
       fn();
-    } else {
-      timer.id = requestAnimationFrame(step);
+      start = new Date().getTime();
     }
+    timer.id = requestAnimationFrame(step);
   };
   timer.id = requestAnimationFrame(step);
   return timer;
 };
 
-const clearRafTimeout = (timerId: number) => {
-  cancelAnimationFrame(timerId);
+const clearRafInterval = (timerId: number) => {
+  if (timerId) {
+    cancelAnimationFrame(timerId);
+  }
 };
 
-const useRafTimeoutFn = (
+const useRafIntervalFn = (
   effect: React.EffectCallback,
   delay = 0,
-): UseRafTimeoutFnTeturn => {
+  options?: UseRafIntervalFnOptions,
+): UseRafIntervalFnTeturn => {
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
-  const effectCallback = useRef(effect)
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const { immediate = false } = options || {};
+  const effectCallback = useRef(effect);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
   const timerRef = useRef<Timer | null>(null);
 
   const run = useCallback(() => {
-    setIsReady(false);
+    setIsRunning(false);
     cancel();
-    timerRef.current = setRafTimeout(() => {
-      setIsReady(true);
+    if (immediate) {
+      setIsRunning(true);
+      effectCallback.current();
+    }
+    timerRef.current = setRafInterval(() => {
+      setIsRunning(true);
       effectCallback.current();
     }, delay);
-  }, [delay]);
+  }, [delay, immediate]);
 
   const cancel = useCallback(() => {
     if (timerRef.current) {
-      setIsReady(false);
-      clearRafTimeout(timerRef.current.id);
+      setIsRunning(false);
+      clearRafInterval(timerRef.current.id);
       timerRef.current = null;
     }
   }, []);
@@ -74,13 +86,13 @@ const useRafTimeoutFn = (
         clearTimeout(timerRef.current);
       }
     };
-  }, [delay]);
+  }, [delay, immediate]);
 
   return {
-    isReady,
+    isRunning,
     cancel,
     reset: run,
   };
 };
 
-export default useRafTimeoutFn;
+export default useRafIntervalFn;
