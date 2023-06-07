@@ -40,6 +40,8 @@
 - [`useAsyncEffect`](./docs/effect/use-async-effect/useAsyncEffect.md) &mdash; useAsyncEffect 与 useEffect 类似，可以使用异步函数
 - [`useDeepCompareEffect`](./docs/effect/use-deep-compare-effect/useDeepCompareEffect.md) &mdash; useDeepCompareEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
 - [`useDeepCompareLayoutEffect`](./docs/effect/use-deep-compare-layout-effect/useDeepCompareLayoutEffect.md) &mdash; useDeepCompareLayoutEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
+- [`useOnceEffect`](./docs/effect/use-once-effect/useOnceEffect.md) &mdash; useOnceEffect 与 useEffect 类似，但只在依赖项更新时执行一次，后续依赖变更不再执行
+- [`useOnceUpdateEffect`](./docs/effect/use-once-update-effect/useOnceUpdateEffect.md) &mdash; useOnceUpdateEffect 与 useEffect 类似，但是不包括初次渲染，并且只在依赖项更新时执行一次，后续依赖变更不再执行
 - [`useTimeoutFn`](./docs/effect/use-timeout-fn/useTimeoutFn.md) &mdash; useTimeoutFn 在指定的时间后执行一个函数
 - [`useRafTimeoutFn`](./docs/effect/use-raf-timeout-fn/useRafTimeoutFn.md) &mdash; useRafTimeoutFn 在指定的时间后执行一个函数，基于 requestAnimationFrame 实现
 - [`useIntervalFn`](./docs/effect/use-interval-fn/useIntervalFn.md) &mdash; useIntervalFn 定时器执行一个函数

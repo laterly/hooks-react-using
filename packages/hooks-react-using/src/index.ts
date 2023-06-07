@@ -20,6 +20,8 @@ import useTimeoutFn from './effect/use-timeout-fn';
 import useRafTimeoutFn from './effect/use-raf-timeout-fn';
 import useIntervalFn from './effect/use-interval-fn';
 import useRafIntervalFn from './effect/use-raf-interval-fn';
+import useOnceEffect from './effect/use-once-effect';
+import useOnceUpdateEffect from './effect/use-once-update-effect';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -40,6 +42,8 @@ export {
   useAsyncEffect,
   useDeepCompareEffect,
   useDeepCompareLayoutEffect,
+  useOnceEffect,
+  useOnceUpdateEffect,
   useTimeoutFn,
   useRafTimeoutFn,
   useIntervalFn,

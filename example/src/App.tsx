@@ -1,26 +1,31 @@
 import React from "react";
+import UseMount from "./demo/use-mount";
 import UseSetStateDemo from "./demo/use-set-state";
 import UseWatchEffectDemo from "./demo/use-watch-effect";
 import UseDebounceFnDemo from "./demo/use-debounce-fn";
 import UseDebounceDemo from "./demo/use-debounce";
 import UseThrottleDemo from "./demo/use-throttle";
-import UseLocalStorageStateDemo from './demo/use-local-storage-state';
-import UseSessionStorageStateDemo from './demo/use-session-storage-state';
+import UseLocalStorageStateDemo from "./demo/use-local-storage-state";
+import UseSessionStorageStateDemo from "./demo/use-session-storage-state";
 import UseDebounceEffectDemo from "./demo/use-debounce-effect";
 import UseUpdateEffectDemo from "./demo/use-update-effect";
-import UseUpdateLayoutEffectDemo from './demo/use-update-layout-effect'
+import UseUpdateLayoutEffectDemo from "./demo/use-update-layout-effect";
 import UseThrottleFnDemo from "./demo/use-throttle-fn";
-import UseThrottleEffectDemo from './demo/use-throttle-effect';
-import UsePreviousDemo from './demo/use-previous';
-import UseAsyncEffectDemo from './demo/use-async-effect';
+import UseThrottleEffectDemo from "./demo/use-throttle-effect";
+import UsePreviousDemo from "./demo/use-previous";
+import UseAsyncEffectDemo from "./demo/use-async-effect";
 import UseDeepCompareEffectDemo from "./demo/use-deep-compare-effect";
 import UseTimeoutFnDemo from "./demo/use-timeout-fn";
 import UseRafTimeoutFnDemo from "./demo/use-raf-timeout-fn";
-import UseIntervalFnDemo from './demo/use-interval-fn';
+import UseIntervalFnDemo from "./demo/use-interval-fn";
 import UseRafIntervalFnDemo from "./demo/use-raf-interval-fn";
+import UseOnceEffectDemo from './demo/use-once-effect';
+import UseOnceUpdateEffectDemo from "./demo/use-once-update-effect";
 const App: React.FC = () => {
   return (
     <>
+      <h3>UseMount</h3>
+      <UseMount />
       <h3>UseSetStateDemo</h3>
       <UseSetStateDemo />
       <h3>UseWatchEffectDemo</h3>
@@ -59,6 +64,10 @@ const App: React.FC = () => {
       <UseIntervalFnDemo />
       <h3>UseRafIntervalFnDemo</h3>
       <UseRafIntervalFnDemo />
+      <h3>UseOnceEffectDemo</h3>
+      <UseOnceEffectDemo />
+      <h3>UseOnceUpdateEffectDemo</h3>
+      <UseOnceUpdateEffectDemo />
     </>
   );
 };
