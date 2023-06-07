@@ -43,5 +43,6 @@
 - [`useTimeoutFn`](./docs/effect/use-timeout-fn/useTimeoutFn.md) &mdash; useTimeoutFn 在指定的时间后执行一个函数
 - [`useRafTimeoutFn`](./docs/effect/use-raf-timeout-fn/useRafTimeoutFn.md) &mdash; useRafTimeoutFn 在指定的时间后执行一个函数，基于 requestAnimationFrame 实现
 - [`useIntervalFn`](./docs/effect/use-interval-fn/useIntervalFn.md) &mdash; useIntervalFn 定时器执行一个函数
+- [`useRafIntervalFn`](./docs/effect/use-raf-interval-fn/useRafIntervalFn.md) &mdash; useRafIntervalFn 定时器执行一个函数，基于 requestAnimationFrame 实现
   <br/>
   <br/>
