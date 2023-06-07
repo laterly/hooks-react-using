@@ -4,8 +4,7 @@ import { useTimeoutFn } from "../../../../packages/hooks-react-using/src";
 function UseTimeoutFnDemo() {
   const [message, setMessage] = useState("");
 
-  const [isReady, { cancel, reset }] = useTimeoutFn(() => {
-    console.log("hello");
+  const { isReady, cancel, reset } = useTimeoutFn(() => {
     setMessage("Hello, world!");
   }, 1000);
 

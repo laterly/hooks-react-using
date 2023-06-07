@@ -4,8 +4,7 @@ import { useRafTimeoutFn } from "../../../../packages/hooks-react-using/src";
 function UseRafTimeoutFnDemo() {
   const [message, setMessage] = useState("");
 
-  const [isReady, { cancel, reset }] = useRafTimeoutFn(() => {
-    console.log("hello");
+  const { isReady, cancel, reset } = useRafTimeoutFn(() => {
     setMessage("Hello, world!");
   }, 1000);
 
