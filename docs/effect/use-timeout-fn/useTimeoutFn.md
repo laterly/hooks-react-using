@@ -13,7 +13,6 @@ function UseTimeoutFnDemo() {
 
   const [isReady, { cancel, reset }] = useTimeoutFn(
     () => {
-      console.log("hello");
       setMessage("Hello, world!");
     },
     {
