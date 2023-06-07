@@ -6,33 +6,68 @@ useWatchEffect 可以观察值的变化，并且可以中止观察，减少不�
 
 ```tsx
 //导入模块
-import React, { useState } from "react";
-import { Button } from "antd";
+import { useState } from "react";
 import { useWatchEffect } from "hooks-react-using";
+interface User {
+  name?: string;
+}
+function Example(): JSX.Element {
+  const [user, setUser] = useState<User>({});
+  const [count, setCount] = useState<number>(0);
+  const [name, setName] = useState<string>("");
 
-const Example: React.FC = () => {
-  const [prev, setPrev] = useState(0);
-  const [count, setCount] = useState(0);
-  const stop = useWatchEffect(count, (curVal, oldVal) => {
-    console.log("旧值oldVal: ", oldVal);
-    console.log("新值curVal: ", curVal);
-    setPrev(oldVal!);
-  });
-  const add = () => setCount((prevCount) => prevCount + 1);
+  const stop = useWatchEffect<[User[], number[], string]>(
+    (
+      [newUserValue, oldUserValue],
+      [newCountValue, oldCountValue],
+      [newNameValue, oldNameValue]
+    ) => {
+      console.log(
+        `Changes detected: name from ${JSON.stringify(
+          oldUserValue
+        )} to ${JSON.stringify(
+          newUserValue
+        )}, count from ${oldCountValue} to ${newCountValue}, name from ${oldNameValue} to ${newNameValue}`
+      );
+    },
+    [user, count, name]
+  );
+
   return (
     <div>
-      <p> 当前的count是{count}</p> <p> 前一次的count是{prev}</p> {count} <Button
-        onClick={add}
-        className="btn"
+      <div>{user.name}</div>
+      <input
+        type="text"
+        value={user.name}
+        placeholder="请输入用户名字"
+        onChange={(event) =>
+          setUser({
+            name: event.target.value,
+          })
+        }
+      />
+      <input
+        type="text"
+        value={name}
+        placeholder="请输入名字"
+        onChange={(event) => setName(event.target.value)}
+      />
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Increment count
+      </button>
+      <p>{count}</p>
+      <button
+        onClick={() => {
+          stop();
+        }}
       >
-        +
-      </Button> <Button onClick={stop} className="btn">
         中止观察
-      </Button>
+      </button>
     </div>
   );
-};
+}
 export default Example;
+
 ```
 
 ## API

@@ -1,37 +1,29 @@
-import { useRef, useEffect } from 'react';
-type Callback<T> = (dep: T, prev: T | undefined) => void;
-type Config = {
-  immediate: boolean;
-};
+import { useEffect, useRef, DependencyList } from 'react';
 
-function useWatchEffect<T>(
-  dep: T,
-  callback: Callback<T>,
-  config: Config = { immediate: false },
-) {
-  const { immediate } = config;
+type EffectCallback<T extends any[]> = (...args: T) => void;
 
-  const prev = useRef<T>();
-  const inited = useRef(false);
+const useWatchEffect = <T extends any[]>(
+  effectCallback: EffectCallback<T>,
+  deps: DependencyList,
+) => {
+  const preDeps = useRef<DependencyList>(deps);
   const stop = useRef(false);
-
   useEffect(() => {
-    const execute = () => callback(dep, prev.current);
     if (!stop.current) {
-      if (!inited.current) {
-        inited.current = true;
-        if (immediate) {
-          execute();
-        }
-      } else {
-        execute();
-      }
-      prev.current = dep;
-    }
-  }, [dep]);
+      const changes: [any, any][] = deps.map((dep, index) => {
+        return [dep, preDeps.current[index]];
+      });
 
+      if (changes.some(([newDep, oldDep]) => newDep !== oldDep)) {
+        effectCallback(...(changes as T));
+      }
+
+      preDeps.current = deps;
+    }
+  }, deps);
   return () => {
     stop.current = true;
   };
-}
+};
+
 export default useWatchEffect;
