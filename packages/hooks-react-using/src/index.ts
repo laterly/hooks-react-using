@@ -17,6 +17,7 @@ import useAsyncEffect from './effect/use-async-effect';
 import useDeepCompareEffect from './effect/use-deep-compare-effect';
 import useDeepCompareLayoutEffect from './effect/use-deep-compare-layout-effect';
 import useTimeoutFn from './effect/use-timeout-fn';
+import useRafTimeoutFn from './effect/use-raf-timeout-fn';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -38,4 +39,5 @@ export {
   useDeepCompareEffect,
   useDeepCompareLayoutEffect,
   useTimeoutFn,
+  useRafTimeoutFn,
 };

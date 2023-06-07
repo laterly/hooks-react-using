@@ -1,17 +1,40 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
 import { isNumber } from 'lodash-es';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
-export type UseTimeoutFnReturn = [
+type UseRafTimeoutFnTeturn = [
   boolean,
   {
     cancel: () => void; //取消定时器
     reset: () => void; //重新执行定时器
   },
 ];
-const useTimeoutFn = (
+
+const setRafTimeout = (fn: () => void, delay = 0) => {
+  let timeId = 0;
+  const start = new Date().getTime();
+  const step = () => {
+    const current = new Date().getTime();
+
+    const elapsed = current - start;
+
+    if (elapsed >= delay) {
+      fn();
+    } else {
+      timeId = requestAnimationFrame(step);
+    }
+  };
+  timeId = requestAnimationFrame(step);
+  return timeId;
+};
+
+const clearRafTimeout = (timerId: number) => {
+  cancelAnimationFrame(timerId);
+};
+
+const useRafTimeoutFn = (
   effect: React.EffectCallback,
   delay = 0,
-): UseTimeoutFnReturn => {
+): UseRafTimeoutFnTeturn => {
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
@@ -21,7 +44,7 @@ const useTimeoutFn = (
   const run = useCallback(() => {
     setIsReady(false);
     cancel();
-    timerRef.current = window.setTimeout(() => {
+    timerRef.current = setRafTimeout(() => {
       setIsReady(true);
       effect();
     }, delay);
@@ -35,7 +58,7 @@ const useTimeoutFn = (
 
   const cancel = useCallback(() => {
     if (timerRef.current) {
-      window.clearTimeout(timerRef.current);
+      clearRafTimeout(timerRef.current);
       timerRef.current = null;
     }
   }, []);
@@ -53,4 +76,4 @@ const useTimeoutFn = (
   ];
 };
 
-export default useTimeoutFn;
+export default useRafTimeoutFn;

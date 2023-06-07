@@ -1,17 +1,17 @@
 # useTimeoutFn
 
-useTimeoutFn 在指定的时间后执行一个函数
+useTimeoutFn 在指定的时间后执行一个函数,基于 requestAnimationFrame 实现
 
 ### 基础用法
 
 ```tsx
 import { useState } from "react";
-import { useTimeoutFn } from "hooks-react-using";
+import { useRafTimeoutFn } from "hooks-react-using";
 
-function UseTimeoutFnDemo() {
+function UseRafTimeoutFnDemo() {
   const [message, setMessage] = useState("");
 
-  const [isReady, { cancel, reset }] = useTimeoutFn(
+  const [isReady, { cancel, reset }] = useRafTimeoutFn(
     () => {
       setMessage("Hello, world!");
     },
@@ -38,7 +38,7 @@ function UseTimeoutFnDemo() {
     </>
   );
 }
-export default UseTimeoutFnDemo;
+export default UseRafTimeoutFnDemo;
 ```
 
 ## API
@@ -50,7 +50,7 @@ const [
      cancel: () => void,
      reset: () => void,
    }
-] = useTimeoutFn(fn: React.EffectCallback, delay?: number);
+] = useRafTimeoutFn(fn: React.EffectCallback, delay?: number);
 ```
 
 ## 参数
