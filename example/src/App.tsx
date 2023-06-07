@@ -14,6 +14,7 @@ import UseThrottleEffectDemo from './demo/use-throttle-effect';
 import UsePreviousDemo from './demo/use-previous';
 import UseAsyncEffectDemo from './demo/use-async-effect';
 import UseDeepCompareEffectDemo from "./demo/use-deep-compare-effect";
+import UseTimeoutFnDemo from "./demo/use-timeout-fn";
 const App: React.FC = () => {
   return (
     <>
@@ -47,6 +48,8 @@ const App: React.FC = () => {
       <UseAsyncEffectDemo />
       <h3>UseDeepCompareEffectDemo</h3>
       <UseDeepCompareEffectDemo />
+      <h3>UseTimeoutFnDemo</h3>
+      <UseTimeoutFnDemo />
     </>
   );
 };
