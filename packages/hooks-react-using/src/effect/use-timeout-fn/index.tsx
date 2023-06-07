@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { isNumber } from 'lodash-es';
 
-export type UseTimeoutFnReturn = [
-  boolean,
-  {
-    cancel: () => void; //取消定时器
-    reset: () => void; //重新执行定时器
-  },
-];
+export type UseTimeoutFnReturn = {
+  isReady: boolean;
+  cancel: () => void; //取消定时器
+  reset: () => void; //重新执行定时器
+};
+
 const useTimeoutFn = (
   effect: React.EffectCallback,
   delay = 0,
@@ -44,13 +43,11 @@ const useTimeoutFn = (
     run();
   }, [delay]);
 
-  return [
+  return {
     isReady,
-    {
-      cancel,
-      reset: run,
-    },
-  ];
+    cancel,
+    reset: run,
+  };
 };
 
 export default useTimeoutFn;

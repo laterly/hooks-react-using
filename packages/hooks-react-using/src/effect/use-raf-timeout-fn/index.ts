@@ -1,13 +1,11 @@
 import { isNumber } from 'lodash-es';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-type UseRafTimeoutFnTeturn = [
-  boolean,
-  {
-    cancel: () => void; //取消定时器
-    reset: () => void; //重新执行定时器
-  },
-];
+type UseRafTimeoutFnTeturn = {
+  isReady: boolean;
+  cancel: () => void; //取消定时器
+  reset: () => void; //重新执行定时器
+};
 
 const setRafTimeout = (fn: () => void, delay = 0) => {
   let timeId = 0;
@@ -67,13 +65,11 @@ const useRafTimeoutFn = (
     run();
   }, [delay]);
 
-  return [
+  return {
     isReady,
-    {
-      cancel,
-      reset: run,
-    },
-  ];
+    cancel,
+    reset: run,
+  };
 };
 
 export default useRafTimeoutFn;

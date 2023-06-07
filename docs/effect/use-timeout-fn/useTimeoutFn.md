@@ -11,7 +11,7 @@ import { useTimeoutFn } from "hooks-react-using";
 function UseTimeoutFnDemo() {
   const [message, setMessage] = useState("");
 
-  const [isReady, { cancel, reset }] = useTimeoutFn(
+  const { isReady, cancel, reset } = useTimeoutFn(
     () => {
       setMessage("Hello, world!");
     },
@@ -44,13 +44,11 @@ export default UseTimeoutFnDemo;
 ## API
 
 ```typescript
-const [
-    isReady: boolean,
-   {
-     cancel: () => void,
-     reset: () => void,
-   }
-] = useTimeoutFn(fn: React.EffectCallback, delay?: number);
+const {
+  isReady: boolean,
+  cancel: () => void,
+  reset: () => void,
+} = useTimeoutFn(fn: React.EffectCallback, delay?: number);
 ```
 
 ## 参数
