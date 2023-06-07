@@ -1,6 +1,6 @@
-# useTimeoutFn
+# useRafTimeoutFn
 
-useTimeoutFn 在指定的时间后执行一个函数，基于 requestAnimationFrame 实现
+useRafTimeoutFn 在指定的时间后执行一个函数，基于 requestAnimationFrame 实现
 
 ### 基础用法
 

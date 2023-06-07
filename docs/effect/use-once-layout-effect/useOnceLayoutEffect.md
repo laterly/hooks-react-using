@@ -1,4 +1,4 @@
-# useOnceEffect
+# useOnceLayoutEffect
 
 useOnceLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时执行一次，后续依赖变更不再执行 
 

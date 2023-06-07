@@ -1,4 +1,4 @@
-# useOnceEffect
+# useOnceUpdateEffect
 
 useOnceUpdateEffect 与 useEffect 类似，但是不包括初次渲染，并且只在依赖项更新时执行一次，后续依赖变更不再执行  
 
