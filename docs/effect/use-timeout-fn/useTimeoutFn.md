@@ -15,9 +15,7 @@ function UseTimeoutFnDemo() {
     () => {
       setMessage("Hello, world!");
     },
-    {
-      delay: 1000,
-    }
+    1000
   );
 
   return (
@@ -52,7 +50,7 @@ const [
      cancel: () => void,
      reset: () => void,
    }
-] = useTimeoutFn(fn: () => void, { delay?: number});
+] = useTimeoutFn(fn: () => void, delay?: number);
 ```
 
 ## 参数

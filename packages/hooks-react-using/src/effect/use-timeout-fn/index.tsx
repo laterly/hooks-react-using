@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-interface Options {
-  delay?: number; //延迟时间，默认为 0 毫秒。
-}
+
 export type UseTimeoutFnReturn = [
   boolean,
   {
@@ -11,13 +9,12 @@ export type UseTimeoutFnReturn = [
 ];
 const useTimeoutFn = (
   effect: React.EffectCallback,
-  options?: Options,
+  delay = 0,
 ): UseTimeoutFnReturn => {
-  const { delay = 0 } = options || {};
   const [isReady, setIsReady] = useState<boolean>(false);
   const timerRef = useRef<number | null>(null);
 
-  const reset = useCallback(() => {
+  const run = useCallback(() => {
     setIsReady(false);
     cancel();
     timerRef.current = window.setTimeout(() => {
@@ -40,14 +37,14 @@ const useTimeoutFn = (
   }, []);
 
   useEffect(() => {
-    reset();
+    run();
   }, [delay]);
 
   return [
     isReady,
     {
       cancel,
-      reset,
+      reset: run,
     },
   ];
 };
