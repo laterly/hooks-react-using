@@ -1,11 +1,12 @@
-import { useState } from 'react';
-import useWatchEffect from '../../effect/use-watch-effect';
+import { useEffect, useRef } from 'react';
 const usePrevious = <T>(value: T) => {
-  const [pre, setPre] = useState<T>();
-  useWatchEffect(value, (_, oldValue) => {
-    setPre(oldValue);
+  const ref = useRef<T>();
+
+  useEffect(() => {
+    ref.current = value;
   });
-  return pre;
+
+  return ref.current;
 };
 
 export default usePrevious;
