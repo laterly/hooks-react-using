@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useWatchEffect 可以观察值的变化，并且可以中止观察，减少不必要的开销，它接收两个参数：要监听的变量和监听函数
+useWatchEffect 与 useEffect 类似，可以获取依赖变更的新值和旧值，并且可以中止观察，减少不必要的开销。
 
 ### 基础用法
 
