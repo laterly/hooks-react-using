@@ -31,12 +31,14 @@
 ### Effect
 
 - [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以取消观察。
+- [`useWatchLayoutEffect`](./docs/effect/use-watch-layout-effect/useWatchLayoutEffect.md) &mdash; useWatchLayoutEffect 与 useLayoutEffect 类似，可以观察依赖变更的新值和旧值，并且可以取消观察。
 - [`useDeepWatchEffect`](./docs/effect/use-deep-watch-effect/useDeepWatchEffect.md) &mdash; useDeepWatchEffect 与 useEffect 类似，可以深度观察依赖变更的新值和旧值，并且可以取消观察。
+- [`useDeepWatchLayoutEffect`](./docs/effect/use-deep-watch-layout-effect/useDeepWatchLayoutEffect.md) &mdash; useDeepWatchLayoutEffect 与 useLayoutEffect 类似，可以深度观察依赖变更的新值和旧值，并且可以取消观察。
 - [`useUpdateEffect`](./docs/effect/use-update-effect/useUpdateEffect.md) &mdash; useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
 - [`useUpdateLayoutEffect`](./docs/effect/use-update-layout-effect/useUpdateLayoutEffect.md) &mdash; useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染
 - [`useAsyncEffect`](./docs/effect/use-async-effect/useAsyncEffect.md) &mdash; useAsyncEffect 与 useEffect 类似，可以使用异步函数
 - [`useDeepCompareEffect`](./docs/effect/use-deep-compare-effect/useDeepCompareEffect.md) &mdash; useDeepCompareEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
-- [`useDeepCompareLayoutEffect`](./docs/effect/use-deep-compare-layout-effect/useDeepCompareLayoutEffect.md) &mdash; useDeepCompareLayoutEffect 与 useEffect 类似，用于在函数组件中实现具有深比较
+- [`useDeepCompareLayoutEffect`](./docs/effect/use-deep-compare-layout-effect/useDeepCompareLayoutEffect.md) &mdash; useDeepCompareLayoutEffect 与 useLayoutEffect 类似，用于在函数组件中实现具有深比较
 - [`useOnceEffect`](./docs/effect/use-once-effect/useOnceEffect.md) &mdash; useOnceEffect 与 useEffect 类似，但只在依赖项更新时执行一次，后续依赖变更不再执行
 - [`useOnceUpdateEffect`](./docs/effect/use-once-update-effect/useOnceUpdateEffect.md) &mdash; useOnceUpdateEffect 与 useEffect 类似，但是不包括初次渲染，并且只在依赖项更新时执行一次，后续依赖变更不再执行
 - [`useOnceLayoutEffect`](./docs/effect/use-once-layout-effect/useOnceLayoutEffect.md) &mdash; useOnceLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时执行一次，后续依赖变更不再执行

@@ -1,14 +1,15 @@
-import { useEffect, useRef, DependencyList, useCallback } from 'react';
+import { useRef, DependencyList, useCallback } from 'react';
+import useDeepCompareLayoutEffect from '../use-deep-compare-layout-effect';
 
-export type EffectCallback<T extends any[]> = (...args: T) => void;
+type EffectCallback<T extends any[]> = (...args: T) => void;
 
-const useWatchEffect = <T extends any[]>(
+const useDeepWatchEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: DependencyList,
 ) => {
   const preDeps = useRef<DependencyList>(deps);
   const stopRef = useRef(false);
-  useEffect(() => {
+  useDeepCompareLayoutEffect(() => {
     if (!stopRef.current) {
       const changes: [any, any][] = deps.map((dep, index) => {
         return [dep, preDeps.current[index]];
@@ -21,6 +22,7 @@ const useWatchEffect = <T extends any[]>(
       preDeps.current = deps;
     }
   }, deps);
+
   const cancel = useCallback(() => {
     stopRef.current = true;
   }, []);
@@ -33,4 +35,4 @@ const useWatchEffect = <T extends any[]>(
   };
 };
 
-export default useWatchEffect;
+export default useDeepWatchEffect;

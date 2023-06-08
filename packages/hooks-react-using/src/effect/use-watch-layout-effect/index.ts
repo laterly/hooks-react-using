@@ -1,4 +1,4 @@
-import { useEffect, useRef, DependencyList, useCallback } from 'react';
+import { useLayoutEffect, useRef, DependencyList, useCallback } from 'react';
 
 export type EffectCallback<T extends any[]> = (...args: T) => void;
 
@@ -8,7 +8,7 @@ const useWatchEffect = <T extends any[]>(
 ) => {
   const preDeps = useRef<DependencyList>(deps);
   const stopRef = useRef(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!stopRef.current) {
       const changes: [any, any][] = deps.map((dep, index) => {
         return [dep, preDeps.current[index]];
