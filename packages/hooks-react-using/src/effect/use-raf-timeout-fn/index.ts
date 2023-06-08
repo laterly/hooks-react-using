@@ -42,9 +42,9 @@ const useRafTimeoutFn = (
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
-  const effectCallback = useRef(effect)
+  const effectCallback = useRef(effect);
   const [isReady, setIsReady] = useState<boolean>(false);
-  const timerRef = useRef<Timer | null>(null);
+  const timerRef = useRef<Timer>({ id: 0 });
 
   const run = useCallback(() => {
     setIsReady(false);
@@ -59,7 +59,7 @@ const useRafTimeoutFn = (
     if (timerRef.current) {
       setIsReady(false);
       clearRafTimeout(timerRef.current.id);
-      timerRef.current = null;
+      timerRef.current = { id: 0 };
     }
   }, []);
 
@@ -71,7 +71,7 @@ const useRafTimeoutFn = (
     run();
     return () => {
       if (timerRef.current) {
-        clearTimeout(timerRef.current);
+        clearTimeout(timerRef.current.id);
       }
     };
   }, [delay]);

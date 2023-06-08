@@ -1,16 +1,13 @@
-import { useEffect, useRef, DependencyList, useCallback } from 'react';
+import { useLayoutEffect, useRef, DependencyList, useCallback } from 'react';
+import { EffectCallback } from '../use-watch-effect';
 
-export type EffectCallback<T extends any[]> = (
-  ...args: [...T, number[]]
-) => void;
-
-const useWatchEffect = <T extends any[]>(
+const useWatchLayoutEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: DependencyList,
 ) => {
   const preDeps = useRef<DependencyList>(deps);
   const stopRef = useRef(false);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!stopRef.current) {
       const changes: [any, any][] = deps.map((dep, index) => {
         return [dep, preDeps.current[index]];
@@ -41,4 +38,4 @@ const useWatchEffect = <T extends any[]>(
   };
 };
 
-export default useWatchEffect;
+export default useWatchLayoutEffect;

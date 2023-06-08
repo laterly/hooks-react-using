@@ -2,6 +2,7 @@ import React from "react";
 import UseMount from "./demo/use-mount";
 import UseSetStateDemo from "./demo/use-set-state";
 import UseWatchEffectDemo from "./demo/use-watch-effect";
+import UseDeepWatchEffectDemo from './demo/use-deep-watch-effect';
 import UseDebounceFnDemo from "./demo/use-debounce-fn";
 import UseDebounceDemo from "./demo/use-debounce";
 import UseThrottleDemo from "./demo/use-throttle";
@@ -68,6 +69,8 @@ const App: React.FC = () => {
       <UseOnceEffectDemo />
       <h3>UseOnceUpdateEffectDemo</h3>
       <UseOnceUpdateEffectDemo />
+      <h3>UseDeepWatchEffect</h3>
+      <UseDeepWatchEffectDemo />
     </>
   );
 };

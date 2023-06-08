@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useWatchEffect 与 useEffect 类似，可以获取依赖变更的新值和旧值，并且可以中止观察，减少不必要的开销。
+useWatchEffect 与 useEffect 类似，可以观察哪个依赖的变更，观察依赖变更的新值和旧值，并且可以取消观察。
 
 ### 基础用法
 
@@ -16,11 +16,12 @@ function Example(): JSX.Element {
   const [count, setCount] = useState<number>(0);
   const [name, setName] = useState<string>("");
 
-  const stop = useWatchEffect<[User[], number[], string]>(
+  const {cancel,reset} = useWatchEffect<[User[], number[], string]>(
     (
       [newUserValue, oldUserValue],
       [newCountValue, oldCountValue],
-      [newNameValue, oldNameValue]
+      [newNameValue, oldNameValue],
+      changes,
     ) => {
       console.log(
         `Changes detected: name from ${JSON.stringify(
@@ -29,6 +30,7 @@ function Example(): JSX.Element {
           newUserValue
         )}, count from ${oldCountValue} to ${newCountValue}, name from ${oldNameValue} to ${newNameValue}`
       );
+      console.log('changes',changes);
     },
     [user, count, name]
   );
@@ -58,10 +60,15 @@ function Example(): JSX.Element {
       <p>{count}</p>
       <button
         onClick={() => {
-          stop();
+          cancel();
         }}
       >
-        中止观察
+        取消观察
+      </button>
+      <buttion onClick={()=>{
+        reset();
+      }}>
+        重新观察
       </button>
     </div>
   );
@@ -73,13 +80,9 @@ export default Example;
 ## API
 
 ```typescript
-type Callback<T> = (dep: T, prev: T | undefined) => void;
-type Config = {
-  immediate: boolean;
-};
-const stop = useWatchEffect<T>(
-  dep: T,
-  callback: Callback<T>,
-  config: Config = { immediate: false },
-)
+type EffectCallback<T extends any[]> = (...args: T) => void;
+const {cancel,reset}= useWatchEffect = <T extends any[]>(
+  effectCallback: EffectCallback<T>,
+  deps: React.DependencyList,
+);
 ```
