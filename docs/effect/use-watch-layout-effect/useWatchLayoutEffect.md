@@ -30,7 +30,7 @@ function Example(): JSX.Element {
           newUserValue
         )}, count from ${oldCountValue} to ${newCountValue}, name from ${oldNameValue} to ${newNameValue}`
       );
-      console.log('changes',changes);
+      console.log('变化的索引changes',changes);
     },
     [user, count, name]
   );
@@ -80,7 +80,9 @@ export default Example;
 ## API
 
 ```typescript
-type EffectCallback<T extends any[]> = (...args: T) => void;
+export type EffectCallback<T extends any[]> = (
+  ...args: [...T, number[]]
+) => void;
 const {cancel,reset}= useWatchLayoutEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: React.DependencyList,

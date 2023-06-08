@@ -21,7 +21,7 @@ function MyComponent(): JSX.Element {
           oldUserValue
         )} to ${JSON.stringify(newUserValue)}`
       );
-      console.log('changes',changes);
+      console.log('变化的索引changes',changes);
     },
     [user]
   );
