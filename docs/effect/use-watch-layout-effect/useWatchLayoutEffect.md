@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useWatchLayoutEffect 与 useLayoutEffect 类似，可以观察哪个依赖的变更，观察依赖变更的新值和旧值，并且可以取消观察。
+useWatchLayoutEffect 与 useLayoutEffect 类似，可以观察哪个依赖变化触发了 useEffect 的执行，观察依赖变更的新值和旧值，并且可以取消观察。
 
 ### 基础用法
 
