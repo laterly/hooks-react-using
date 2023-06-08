@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useDeepWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以中止观察。
+useDeepWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以取消观察。
 
 ### 基础用法
 
@@ -14,7 +14,7 @@ interface User {
 function MyComponent(): JSX.Element {
   const [user, setUser] = useState<User>({});
 
-  const stop = useDeepWatchEffect<[User[], number[], string]>(
+  const {cancel,reset} = useDeepWatchEffect<[User[], number[], string]>(
     ([newUserValue, oldUserValue]) => {
       console.log(
         `Changes detected: name from ${JSON.stringify(
@@ -40,10 +40,17 @@ function MyComponent(): JSX.Element {
       </button>
       <button
         onClick={() => {
-          stop();
+          cancel();
         }}
       >
-        中止观察
+        取消观察
+      </button>
+       <button
+        onClick={() => {
+          reset();
+        }}
+      >
+        重新观察
       </button>
     </div>
   );

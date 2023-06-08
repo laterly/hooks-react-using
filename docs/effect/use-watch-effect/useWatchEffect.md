@@ -1,6 +1,6 @@
 # useWatchEffect
 
-useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以中止观察。
+useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以取消观察。
 
 ### 基础用法
 
@@ -16,7 +16,7 @@ function Example(): JSX.Element {
   const [count, setCount] = useState<number>(0);
   const [name, setName] = useState<string>("");
 
-  const stop = useWatchEffect<[User[], number[], string]>(
+  const {cancel,reset} = useWatchEffect<[User[], number[], string]>(
     (
       [newUserValue, oldUserValue],
       [newCountValue, oldCountValue],
@@ -58,10 +58,15 @@ function Example(): JSX.Element {
       <p>{count}</p>
       <button
         onClick={() => {
-          stop();
+          cancel();
         }}
       >
-        中止观察
+        取消观察
+      </button>
+      <buttion onClick={()=>{
+        reset();
+      }}>
+        重新观察
       </button>
     </div>
   );

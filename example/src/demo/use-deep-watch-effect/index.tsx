@@ -6,7 +6,7 @@ interface User {
 function MyComponent(): JSX.Element {
   const [user, setUser] = useState<User>({});
 
-  const stop = useDeepWatchEffect<[User[], number[], string]>(
+  const { cancel, reset } = useDeepWatchEffect<[User[], number[], string]>(
     ([newUserValue, oldUserValue]) => {
       console.log(
         `Changes detected: name from ${JSON.stringify(
@@ -24,7 +24,7 @@ function MyComponent(): JSX.Element {
       <button
         onClick={() =>
           setUser(() => ({
-            name: '小明',
+            name: "小明",
           }))
         }
       >
@@ -32,10 +32,17 @@ function MyComponent(): JSX.Element {
       </button>
       <button
         onClick={() => {
-          stop();
+          cancel();
         }}
       >
-        中止观察
+        取消观察
+      </button>
+      <button
+        onClick={() => {
+          reset();
+        }}
+      >
+        重新观察
       </button>
     </div>
   );

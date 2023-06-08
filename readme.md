@@ -30,8 +30,8 @@
 
 ### Effect
 
-- [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以中止观察。
-- [`useDeepWatchEffect`](./docs/effect/use-deep-watch-effect/useDeepWatchEffect.md) &mdash; useDeepWatchEffect 与 useEffect 类似，可以深度观察依赖变更的新值和旧值，并且可以中止观察。
+- [`useWatchEffect`](./docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以取消观察。
+- [`useDeepWatchEffect`](./docs/effect/use-deep-watch-effect/useDeepWatchEffect.md) &mdash; useDeepWatchEffect 与 useEffect 类似，可以深度观察依赖变更的新值和旧值，并且可以取消观察。
 - [`useUpdateEffect`](./docs/effect/use-update-effect/useUpdateEffect.md) &mdash; useUpdateEffect 与 useEffect 类似，但只在依赖项更新时运行，不包括初次渲染
 - [`useUpdateLayoutEffect`](./docs/effect/use-update-layout-effect/useUpdateLayoutEffect.md) &mdash; useUpdateLayoutEffect 与 useLayoutEffect 类似，但只在依赖项更新时运行，不包括初次渲染
 - [`useAsyncEffect`](./docs/effect/use-async-effect/useAsyncEffect.md) &mdash; useAsyncEffect 与 useEffect 类似，可以使用异步函数

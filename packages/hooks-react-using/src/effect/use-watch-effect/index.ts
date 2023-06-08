@@ -1,4 +1,4 @@
-import { useEffect, useRef, DependencyList } from 'react';
+import { useEffect, useRef, DependencyList, useCallback } from 'react';
 
 type EffectCallback<T extends any[]> = (...args: T) => void;
 
@@ -7,9 +7,9 @@ const useWatchEffect = <T extends any[]>(
   deps: DependencyList,
 ) => {
   const preDeps = useRef<DependencyList>(deps);
-  const stop = useRef(false);
+  const stopRef = useRef(false);
   useEffect(() => {
-    if (!stop.current) {
+    if (!stopRef.current) {
       const changes: [any, any][] = deps.map((dep, index) => {
         return [dep, preDeps.current[index]];
       });
@@ -21,8 +21,15 @@ const useWatchEffect = <T extends any[]>(
       preDeps.current = deps;
     }
   }, deps);
-  return () => {
-    stop.current = true;
+  const cancel = useCallback(() => {
+    stopRef.current = true;
+  }, []);
+  const reset = useCallback(() => {
+    stopRef.current = false;
+  }, []);
+  return {
+    cancel,
+    reset,
   };
 };
 

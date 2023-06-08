@@ -8,7 +8,7 @@ function MyComponent(): JSX.Element {
   const [count, setCount] = useState<number>(0);
   const [name, setName] = useState<string>("");
 
-  const stop = useWatchEffect<[User[], number[], string]>(
+  const {cancel,reset} = useWatchEffect<[User[], number[], string]>(
     (
       [newUserValue, oldUserValue],
       [newCountValue, oldCountValue],
@@ -50,10 +50,17 @@ function MyComponent(): JSX.Element {
       <p>{count}</p>
       <button
         onClick={() => {
-          stop();
+          cancel();
         }}
       >
-        中止观察
+        取消观察
+      </button>
+      <button
+        onClick={() => {
+          reset();
+        }}
+      >
+        重新观察
       </button>
     </div>
   );

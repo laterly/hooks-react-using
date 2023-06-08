@@ -1,4 +1,4 @@
-import { useRef, DependencyList } from 'react';
+import { useRef, DependencyList, useCallback } from 'react';
 import useDeepCompareEffect from '../use-deep-compare-effect';
 
 type EffectCallback<T extends any[]> = (...args: T) => void;
@@ -8,9 +8,9 @@ const useDeepWatchEffect = <T extends any[]>(
   deps: DependencyList,
 ) => {
   const preDeps = useRef<DependencyList>(deps);
-  const stop = useRef(false);
+  const stopRef = useRef(false);
   useDeepCompareEffect(() => {
-    if (!stop.current) {
+    if (!stopRef.current) {
       const changes: [any, any][] = deps.map((dep, index) => {
         return [dep, preDeps.current[index]];
       });
@@ -22,8 +22,16 @@ const useDeepWatchEffect = <T extends any[]>(
       preDeps.current = deps;
     }
   }, deps);
-  return () => {
-    stop.current = true;
+
+  const cancel = useCallback(() => {
+    stopRef.current = true;
+  }, []);
+  const reset = useCallback(() => {
+    stopRef.current = false;
+  }, []);
+  return {
+    cancel,
+    reset,
   };
 };
 
