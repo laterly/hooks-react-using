@@ -3,7 +3,7 @@ import useDeepCompareLayoutEffect from '../use-deep-compare-layout-effect';
 
 type EffectCallback<T extends any[]> = (...args: T) => void;
 
-const useDeepWatchEffect = <T extends any[]>(
+const useDeepWatchLayoutEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: DependencyList,
 ) => {
@@ -35,4 +35,4 @@ const useDeepWatchEffect = <T extends any[]>(
   };
 };
 
-export default useDeepWatchEffect;
+export default useDeepWatchLayoutEffect;

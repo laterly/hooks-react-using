@@ -8,6 +8,8 @@ import useSessionStorageState from './state/use-session-storage-state';
 import usePrevious from './state/use-previous';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
+import useWatchLayoutEffect from './effect/use-watch-layout-effect';
+import useDeepWatchLayoutEffect from './effect/use-deep-watch-layout-effect';
 import useDebounceFn from './effect/use-debounce-fn';
 import useDebounceEffect from './effect/use-debounce-effect';
 import useThrottleFn from './effect/use-throttle-fn';
@@ -35,6 +37,8 @@ export {
 export {
   useWatchEffect,
   useDeepWatchEffect,
+  useWatchLayoutEffect,
+  useDeepWatchLayoutEffect,
   useDebounceFn,
   useDebounceEffect,
   useThrottleFn,

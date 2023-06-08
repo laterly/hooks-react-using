@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, DependencyList, useCallback } from 'react';
 
 export type EffectCallback<T extends any[]> = (...args: T) => void;
 
-const useWatchEffect = <T extends any[]>(
+const useWatchLayoutEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: DependencyList,
 ) => {
@@ -33,4 +33,4 @@ const useWatchEffect = <T extends any[]>(
   };
 };
 
-export default useWatchEffect;
+export default useWatchLayoutEffect;
