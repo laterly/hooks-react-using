@@ -83,7 +83,7 @@ const useRafIntervalFn = (
     run();
     return () => {
       if (timerRef.current) {
-        clearTimeout(timerRef.current);
+        clearTimeout(timerRef.current.id);
       }
     };
   }, [delay, immediate]);
