@@ -11,51 +11,33 @@ import { useDeepWatchEffect } from "hooks-react-using";
 interface User {
   name?: string;
 }
-function Example(): JSX.Element {
+function MyComponent(): JSX.Element {
   const [user, setUser] = useState<User>({});
-  const [count, setCount] = useState<number>(0);
-  const [name, setName] = useState<string>("");
 
   const stop = useDeepWatchEffect<[User[], number[], string]>(
-    (
-      [newUserValue, oldUserValue],
-      [newCountValue, oldCountValue],
-      [newNameValue, oldNameValue]
-    ) => {
+    ([newUserValue, oldUserValue]) => {
       console.log(
         `Changes detected: name from ${JSON.stringify(
           oldUserValue
-        )} to ${JSON.stringify(
-          newUserValue
-        )}, count from ${oldCountValue} to ${newCountValue}, name from ${oldNameValue} to ${newNameValue}`
+        )} to ${JSON.stringify(newUserValue)}`
       );
     },
-    [user, count, name]
+    [user]
   );
 
   return (
     <div>
       <div>{user.name}</div>
-      <input
-        type="text"
-        value={user.name}
-        placeholder="请输入用户名字"
-        onChange={(event) =>
-          setUser({
-            name: event.target.value,
-          })
+
+      <button
+        onClick={() =>
+          setUser(() => ({
+            name: '小明',
+          }))
         }
-      />
-      <input
-        type="text"
-        value={name}
-        placeholder="请输入名字"
-        onChange={(event) => setName(event.target.value)}
-      />
-      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
-        Increment count
+      >
+        设置名字
       </button>
-      <p>{count}</p>
       <button
         onClick={() => {
           stop();
@@ -66,7 +48,7 @@ function Example(): JSX.Element {
     </div>
   );
 }
-export default Example;
+export default MyComponent;
 
 ```
 
