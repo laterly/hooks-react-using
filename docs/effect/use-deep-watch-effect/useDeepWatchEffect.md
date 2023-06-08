@@ -1,13 +1,13 @@
 # useWatchEffect
 
-useWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以中止观察。
+useDeepWatchEffect 与 useEffect 类似，可以观察依赖变更的新值和旧值，并且可以中止观察。
 
 ### 基础用法
 
 ```tsx
 //导入模块
 import { useState } from "react";
-import { useWatchEffect } from "hooks-react-using";
+import { useDeepWatchEffect } from "hooks-react-using";
 interface User {
   name?: string;
 }
@@ -16,7 +16,7 @@ function Example(): JSX.Element {
   const [count, setCount] = useState<number>(0);
   const [name, setName] = useState<string>("");
 
-  const stop = useWatchEffect<[User[], number[], string]>(
+  const stop = useDeepWatchEffect<[User[], number[], string]>(
     (
       [newUserValue, oldUserValue],
       [newCountValue, oldCountValue],
@@ -74,7 +74,7 @@ export default Example;
 
 ```typescript
 type EffectCallback<T extends any[]> = (...args: T) => void;
-const stop= useWatchEffect = <T extends any[]>(
+const stop= useDeepWatchEffect = <T extends any[]>(
   effectCallback: EffectCallback<T>,
   deps: React.DependencyList,
 );
