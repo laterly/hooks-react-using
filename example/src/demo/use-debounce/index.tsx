@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDebounce } from "../../../../packages/hooks-react-using/src";
 const Example: React.FC = () => {
   const [value, setValue] = useState("");

@@ -22,6 +22,7 @@ import UseIntervalFnDemo from "./demo/use-interval-fn";
 import UseRafIntervalFnDemo from "./demo/use-raf-interval-fn";
 import UseOnceEffectDemo from './demo/use-once-effect';
 import UseOnceUpdateEffectDemo from "./demo/use-once-update-effect";
+import UseBooleanDemo from './demo/use-boolean';
 const App: React.FC = () => {
   return (
     <>
@@ -71,6 +72,8 @@ const App: React.FC = () => {
       <UseOnceUpdateEffectDemo />
       <h3>UseDeepWatchEffect</h3>
       <UseDeepWatchEffectDemo />
+      <h3>UseBooleanDemo</h3>
+      <UseBooleanDemo />
     </>
   );
 };
