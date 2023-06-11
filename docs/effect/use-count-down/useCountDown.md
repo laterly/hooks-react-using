@@ -1,5 +1,10 @@
-import { useCountDown } from "../../../../packages/hooks-react-using/src";
+# useCountDown
 
+useCountDown 可用于实现倒计时
+
+### 基础用法
+
+```tsx
 function Example() {
   const { isRunning, current, stop } = useCountDown({
     //倒计时24小时
@@ -77,5 +82,52 @@ function Example() {
     </div>
   );
 }
-
 export default Example;
+```
+
+## API
+
+```typescript
+type CurrentTime = {
+  days: number;
+  hours: number;
+  total: number;
+  minutes: number;
+  seconds: number;
+  milliseconds: number;
+};
+
+type UseCountDownActions = {
+  isRunning?: boolean;
+  start: (time?: number) => void; //手动触发倒计时
+  stop: () => void; //停止触发倒计时
+  current: CurrentTime;
+};
+
+type UseCountDownOptions = {
+  time: number; //剩余时间（毫秒）
+  interval?: number; //变化时间间隔（毫秒）
+  immediate?: boolean; //是否立即触发
+  autoStart?: boolean; //是否自动开始倒计时
+  onChange?: (current: CurrentTime) => void; //变化的回调函数
+  onEnd?: () => void; //倒计时结束触发
+};
+const {
+  isRunning,
+  start,
+  stop,
+  current,
+} = useCountDown(UseCountDownOptions);
+```
+
+## 参数
+- isRunning (boolean): 定时器是否执行中
+- [stop] (() => void): 取消定时器
+- [start] ((time?:number) => void): 开始执行定时器
+- [current] (CurrentTime): 当前的倒计时时间
+- [time]: number; //剩余时间（毫秒）
+- [interval]?: number; //变化时间间隔（毫秒）
+- [immediate]?: boolean; //是否立即触发
+- [autoStart]?: boolean; //是否自动开始倒计时
+- [onChange]?: (current: CurrentTime) => void; //变化的回调函数,current为当前的时间
+- [onEnd]?: () => void; //倒计时结束触发

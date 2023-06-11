@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { isNumber } from 'lodash-es';
 
 export type UseTimeoutFnReturn = {
-  isReady: boolean;
+  isReady: boolean; //是否已经触发了
   stop: () => void; //取消定时器
   start: () => void; //重新执行定时器
 };

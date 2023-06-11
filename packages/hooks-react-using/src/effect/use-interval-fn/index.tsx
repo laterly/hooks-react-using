@@ -3,7 +3,7 @@ import { isNumber } from 'lodash-es';
 
 export type UseIntervalFnReturn = {
   isRunning: boolean;
-  start: () => void;
+  start: () => void; //开始定时器
   stop: () => void; //停止定时器
 };
 
@@ -28,18 +28,14 @@ const useIntervalFn = (
 
   const run = useCallback(() => {
     stop();
+    setIsRunning(true);
     if (immediate) {
-      setIsRunning(true);
       effectCallback.current();
     }
-
     timerRef.current = window.setInterval(() => {
       if (!shouldExecuteCallback) {
         stop();
         return;
-      }
-      if (!isRunning) {
-        setIsRunning(true);
       }
       effectCallback.current();
     }, delay);
@@ -65,6 +61,8 @@ const useIntervalFn = (
       timerRef.current = null;
     }
   }, []);
+
+ 
 
   useEffect(() => {
     if (shouldExecuteCallback) {

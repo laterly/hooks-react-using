@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useIntervalFn from '../../effect/use-interval-fn';
 import { isNumber } from 'lodash-es';
 
@@ -11,9 +11,9 @@ type CurrentTime = {
   milliseconds: number;
 };
 
-type CountDown = {
+type UseCountDownActions = {
   isRunning?: boolean;
-  start: () => void; //手动触发倒计时
+  start: (time?: number) => void; //手动触发倒计时
   stop: () => void; //停止触发倒计时
   current: CurrentTime;
 };
@@ -27,45 +27,50 @@ type UseCountDownOptions = {
   onEnd?: () => void; //倒计时结束触发
 };
 
+const parseTime = (time: number) => {
+  return {
+    days: Math.floor(time / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    total: time,
+    minutes: Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
+    seconds: Math.floor((time % (1000 * 60)) / 1000),
+    milliseconds: Math.floor(time % 1000),
+  };
+};
+
 const useCountDown = ({
   time,
   interval = 1000,
   immediate = false,
-  autoStart = false,
+  autoStart = true,
   onChange,
   onEnd,
-}: UseCountDownOptions): CountDown => {
+}: UseCountDownOptions): UseCountDownActions => {
   if (!isNumber(interval) || interval < 0) {
     throw new Error('interval is not invalid');
   }
   const [currentTime, setCurrentTime] = useState<CurrentTime>({
     days: 0,
     hours: 0,
-    total: time,
+    total: time || 0,
     minutes: 0,
     seconds: 0,
     milliseconds: 0,
   });
 
-  const { isRunning, start, stop } = useIntervalFn(
+  const {
+    isRunning,
+    start: startCountDown,
+    stop,
+  } = useIntervalFn(
     () => {
       setCurrentTime(prevTime => {
         const newTotal = prevTime?.total - interval;
-        if (newTotal <= 0) {
+        if (!newTotal) {
           stop();
           onEnd?.();
         } else {
-          const newTime: CurrentTime = {
-            days: Math.floor(newTotal / (1000 * 60 * 60 * 24)),
-            hours: Math.floor(
-              (newTotal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-            ),
-            total: newTotal,
-            minutes: Math.floor((newTotal % (1000 * 60 * 60)) / (1000 * 60)),
-            seconds: Math.floor((newTotal % (1000 * 60)) / 1000),
-            milliseconds: Math.floor(newTotal % 1000),
-          };
-
+          const newTime: CurrentTime = parseTime(newTotal);
           if (onChange) {
             onChange(newTime);
           }
@@ -81,18 +86,22 @@ const useCountDown = ({
     },
   );
 
+  const start = useCallback(
+    (time?: number) => {
+      if (time) {
+        setCurrentTime(parseTime(time));
+      }
+      startCountDown();
+    },
+    [startCountDown],
+  );
+
   useEffect(() => {
     if (!time) {
+      stop();
       return;
     }
-    setCurrentTime({
-      days: Math.floor(time / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      total: time,
-      minutes: Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((time % (1000 * 60)) / 1000),
-      milliseconds: Math.floor(time % 1000),
-    });
+    setCurrentTime(parseTime(time));
   }, [time]);
 
   return {
