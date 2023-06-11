@@ -27,6 +27,7 @@
 - [`usePrevious`](./docs/state/use-previous/usePrevious.md) &mdash; usePrevious 用来获取组件上一次渲染时某个状态或属性的值
 - [`useBoolean`](./docs/state/use-boolean/useBoolean.md) &mdash; useBoolean 管理一个布尔类型的状态值
 - [`useCountDown`](./docs/state/use-count-down/useCountDown.md) &mdash; useCountDown 可用于实现倒计时
+- [`useRafCountDown`](./docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
   <br/>
   <br/>
 

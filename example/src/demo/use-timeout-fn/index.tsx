@@ -5,12 +5,12 @@ function UseTimeoutFnDemo() {
   const [message, setMessage] = useState("");
   const [count, setCount] = useState("");
 
-  const { isReady, stop,start } = useTimeoutFn(() => {
+  const { isRunning, stop,start } = useTimeoutFn(() => {
     setMessage("Hello, world!");
   }, 1000);
 
   const {
-    isReady: isReadyCount,
+    isRunning: isRunningCount,
     start: startCount,
     stop: stopCount,
   } = useTimeoutFn(
@@ -26,7 +26,7 @@ function UseTimeoutFnDemo() {
 
   return (
     <>
-      <div>{isReady ? message : "Waiting..."}</div>
+      <div>{isRunning ? message : "Waiting..."}</div>
       <button
         onClick={() => {
           stop();
@@ -42,7 +42,7 @@ function UseTimeoutFnDemo() {
         开始执行定时器
       </button>
 
-      <div>{isReadyCount ? count : "Waiting..."}</div>
+      <div>{isRunningCount ? count : "Waiting..."}</div>
       <button
         onClick={() => {
           stopCount();

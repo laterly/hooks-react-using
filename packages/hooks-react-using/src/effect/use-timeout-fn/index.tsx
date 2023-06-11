@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { isNumber } from 'lodash-es';
 
 export type UseTimeoutFnReturn = {
-  isReady: boolean; //是否已经触发了
+  isRunning: boolean; //是否已经触发了
   stop: () => void; //取消定时器
   start: () => void; //重新执行定时器
 };
@@ -21,23 +21,20 @@ const useTimeoutFn = (
   }
   const { immediate = false, autoStart = true } = options || {};
   const effectCallback = useRef(effect);
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
   const timerRef = useRef<number | null>(null);
   const [shouldExecuteCallback, setShouldExecuteCallback] = useState(false);
 
   const run = useCallback(() => {
     stop();
+    setIsRunning(true);
     if (immediate) {
-      setIsReady(true);
       effectCallback.current();
     }
     timerRef.current = window.setTimeout(() => {
       if (!shouldExecuteCallback) {
         stop();
         return;
-      }
-      if (!isReady) {
-        setIsReady(true);
       }
       effectCallback.current();
     }, delay);
@@ -59,7 +56,7 @@ const useTimeoutFn = (
   }, [autoStart]);
 
   const stop = useCallback(() => {
-    setIsReady(false);
+    setIsRunning(false);
     if (timerRef.current) {
       window.clearTimeout(timerRef.current);
       timerRef.current = null;
@@ -80,7 +77,7 @@ const useTimeoutFn = (
   }, [delay, shouldExecuteCallback, immediate]);
 
   return {
-    isReady,
+    isRunning,
     stop,
     start: () => {
       setShouldExecuteCallback(true);

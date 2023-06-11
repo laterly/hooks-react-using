@@ -12,12 +12,12 @@ function UseRafTimeoutFnDemo() {
   const [message, setMessage] = useState("");
   const [count, setCount] = useState("");
 
-  const { isReady, stop,start } = useRafTimeoutFn(() => {
+  const { isRunning, stop,start } = useRafTimeoutFn(() => {
     setMessage("Hello, world!");
   }, 1000);
 
   const {
-    isReady: isReadyCount,
+    isRunning: isRunningCount,
     start: startCount,
     stop: stopCount,
   } = useRafTimeoutFn(
@@ -33,7 +33,7 @@ function UseRafTimeoutFnDemo() {
 
   return (
     <>
-      <div>{isReady ? message : "Waiting..."}</div>
+      <div>{isRunning ? message : "Waiting..."}</div>
       <button
         onClick={() => {
           stop();
@@ -49,7 +49,7 @@ function UseRafTimeoutFnDemo() {
         开始执行定时器
       </button>
 
-      <div>{isReadyCount ? count : "Waiting..."}</div>
+      <div>{isRunningCount ? count : "Waiting..."}</div>
       <button
         onClick={() => {
           stopCount();
@@ -74,7 +74,7 @@ export default UseRafTimeoutFnDemo;
 
 ```typescript
 const {
-  isReady: boolean,
+  isRunning: boolean,
   stop: () => void,
   start: () => void,
 } = useRafTimeoutFn(fn: React.EffectCallback, delay?: number,{
@@ -84,7 +84,7 @@ const {
 ```
 
 ## 参数
-- isReady (boolean): 定时器是否执行完
+- isRunning (boolean): 定时器是否开始执行
 - [delay] (number): 变化时间间隔（毫秒），默认0
 - [immediate] (boolean):是否立即触发，默认false
 - [autoStart] (boolean): 是否自动触发，默认true，如果设置为false,则需要调用start触发

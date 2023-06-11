@@ -58,9 +58,7 @@ const useRafIntervalFn = (
 
   const run = useCallback(() => {
     stop();
-    if (!isRunning) {
-      setIsRunning(true);
-    }
+    setIsRunning(true);
     if (immediate) {
       effectCallback.current();
     }

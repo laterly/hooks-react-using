@@ -2,7 +2,7 @@ import { isNumber } from 'lodash-es';
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 type UseRafTimeoutFnTeturn = {
-  isReady: boolean;
+  isRunning: boolean;
   stop: () => void; //取消定时器
   start: () => void; //重新执行定时器
 };
@@ -50,23 +50,20 @@ const useRafTimeoutFn = (
   }
   const { immediate = false, autoStart = true } = options || {};
   const effectCallback = useRef(effect);
-  const [isReady, setIsReady] = useState<boolean>(false);
+  const [isRunning, setIsRunning] = useState<boolean>(false);
   const timerRef = useRef<Timer>({ id: 0 });
   const [shouldExecuteCallback, setShouldExecuteCallback] = useState(false);
 
   const run = useCallback(() => {
     stop();
+    setIsRunning(true);
     if (immediate) {
-      setIsReady(true);
       effectCallback.current();
     }
     timerRef.current = setRafTimeout(() => {
       if (!shouldExecuteCallback) {
         stop();
         return;
-      }
-      if (!isReady) {
-        setIsReady(true);
       }
       effectCallback.current();
     }, delay);
@@ -82,7 +79,7 @@ const useRafTimeoutFn = (
   }, [autoStart]);
 
   const stop = useCallback(() => {
-    setIsReady(false);
+    setIsRunning(false);
     if (timerRef.current) {
       clearRafTimeout(timerRef.current.id);
       timerRef.current = { id: 0 };
@@ -103,7 +100,7 @@ const useRafTimeoutFn = (
   }, [delay, shouldExecuteCallback, immediate]);
 
   return {
-    isReady,
+    isRunning,
     stop,
     start: () => {
       setShouldExecuteCallback(true);

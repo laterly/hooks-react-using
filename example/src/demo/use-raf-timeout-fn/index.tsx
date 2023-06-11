@@ -5,12 +5,12 @@ function UseRafTimeoutFnDemo() {
   const [message, setMessage] = useState("");
   const [count, setCount] = useState("");
 
-  const { isReady, stop,start } = useRafTimeoutFn(() => {
+  const { isRunning, stop,start } = useRafTimeoutFn(() => {
     setMessage("Hello, world!");
   }, 1000);
 
   const {
-    isReady: isReadyCount,
+    isRunning: isRunningCount,
     start: startCount,
     stop: stopCount,
   } = useRafTimeoutFn(
@@ -26,7 +26,7 @@ function UseRafTimeoutFnDemo() {
 
   return (
     <>
-      <div>{isReady ? message : "Waiting..."}</div>
+      <div>{isRunning ? message : "Waiting..."}</div>
       <button
         onClick={() => {
           stop();
@@ -42,7 +42,7 @@ function UseRafTimeoutFnDemo() {
         开始执行定时器
       </button>
 
-      <div>{isReadyCount ? count : "Waiting..."}</div>
+      <div>{isRunningCount ? count : "Waiting..."}</div>
       <button
         onClick={() => {
           stopCount();

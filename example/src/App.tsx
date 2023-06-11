@@ -24,6 +24,7 @@ import UseOnceEffectDemo from './demo/use-once-effect';
 import UseOnceUpdateEffectDemo from "./demo/use-once-update-effect";
 import UseBooleanDemo from './demo/use-boolean';
 import UseCountDownDemo from './demo/use-count-down';
+import UseRafCountDownDemo from './demo/use-raf-count-down';
 const App: React.FC = () => {
   return (
     <>
@@ -77,6 +78,8 @@ const App: React.FC = () => {
       <UseBooleanDemo />
       <h3>UseCountDownDemo</h3>
       <UseCountDownDemo />
+      <h3>UseRafCountDownDemo</h3>
+      <UseRafCountDownDemo />
     </>
   );
 };
