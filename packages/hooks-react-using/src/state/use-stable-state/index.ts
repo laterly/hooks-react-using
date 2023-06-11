@@ -10,7 +10,7 @@ function useStableState<T = undefined>(
 
   const stableSetState = useCallback((value: T) => {
     if (isFunction(value)) {
-      const newState = value(cloneDeep(lastestRef.current));.
+      const newState = value(cloneDeep(lastestRef.current));
       if (isEqual(newState, lastestRef.current)) {
         return;
       }
