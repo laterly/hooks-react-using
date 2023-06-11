@@ -26,6 +26,7 @@
 - [`useSessionStorageState`](./docs/state/use-session-storage-state/useSessionStorageState.md) &mdash; useSessionStorageState 将状态持久化到 sessionStorage 本地存储中
 - [`usePrevious`](./docs/state/use-previous/usePrevious.md) &mdash; usePrevious 用来获取组件上一次渲染时某个状态或属性的值
 - [`useBoolean`](./docs/state/use-boolean/useBoolean.md) &mdash; useBoolean 管理一个布尔类型的状态值
+- [`useToggle`](./docs/state/use-toggle/useToggle.md) &mdash; useToggle 可用于管理布尔值状态，还可以用于管理任何类型的状态的真假值
 - [`useCountDown`](./docs/state/use-count-down/useCountDown.md) &mdash; useCountDown 可用于实现倒计时
 - [`useRafCountDown`](./docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
 - [`useLatest`](./docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用

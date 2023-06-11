@@ -25,19 +25,8 @@ function Example2() {
   );
 }
 
+
 function Example3() {
-  const [value, toggle] = useToggle("off");
-
-  return (
-    <div>
-      <p>Value: {value}</p>
-      <button onClick={() => toggle("on")}>Turn On</button>
-      <button onClick={() => toggle("off")}>Turn Off</button>
-    </div>
-  );
-}
-
-function Example4() {
   const [value, toggle] = useToggle(true, {
     true: "Yes",
     false: "No",
@@ -58,7 +47,6 @@ function App() {
       <Example />
       <Example2 />
       <Example3 />
-      <Example4 />
     </>
   );
 }
