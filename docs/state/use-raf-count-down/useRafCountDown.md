@@ -117,7 +117,7 @@ const {
   start,
   stop,
   current,
-} = useCountDown(UseCountDownOptions);
+} = useRafCountDown(UseCountDownOptions);
 ```
 
 ## 参数
