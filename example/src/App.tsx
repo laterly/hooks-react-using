@@ -23,6 +23,7 @@ import UseRafIntervalFnDemo from "./demo/use-raf-interval-fn";
 import UseOnceEffectDemo from './demo/use-once-effect';
 import UseOnceUpdateEffectDemo from "./demo/use-once-update-effect";
 import UseBooleanDemo from './demo/use-boolean';
+import UseToggleDemo from './demo/use-toggle';
 import UseCountDownDemo from './demo/use-count-down';
 import UseRafCountDownDemo from './demo/use-raf-count-down';
 import UseStableStateDemo from './demo/use-stable-state';
@@ -83,6 +84,8 @@ const App: React.FC = () => {
       <UseRafCountDownDemo />
       <h3>UseStableStateDemo</h3>
       <UseStableStateDemo />
+      <h3>UseToggleDemo</h3>
+      <UseToggleDemo />
     </>
   );
 };

@@ -11,6 +11,7 @@ import useCountDown from './state/use-count-down';
 import useRafCountDown from './state/use-raf-count-down';
 import useLatest from './state/use-latest';
 import useStableState from './state/use-stable-state';
+import useToggle from './state/use-toggle';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
 import useWatchLayoutEffect from './effect/use-watch-layout-effect';
@@ -43,6 +44,7 @@ export {
   useRafCountDown,
   useLatest,
   useStableState,
+  useToggle,
 };
 export {
   useWatchEffect,
