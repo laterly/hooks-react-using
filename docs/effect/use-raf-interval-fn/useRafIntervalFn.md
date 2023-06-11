@@ -76,6 +76,7 @@ const {
 
 ## 参数
 - isRunning (boolean): 定时器是否正在执行
+- [delay] (number): 变化时间间隔（毫秒），默认0
 - [immediate] (boolean):是否立即触发，默认false
 - [autoStart] (boolean): 是否自动触发，默认true，如果设置为false,则需要调用start触发
 - [stop] (() => void): 停止定时器
