@@ -127,7 +127,7 @@ const {
 - [current] (CurrentTime): 当前的倒计时时间
 - [time]: number; //剩余时间（毫秒）
 - [interval]?: number; //变化时间间隔（毫秒）
-- [immediate]?: boolean; //是否立即触发
-- [autoStart]?: boolean; //是否自动开始倒计时
+- [immediate]?: boolean; //是否立即触发，默认false
+- [autoStart] (boolean): 是否自动触发，默认true，如果设置为false,则需要调用start触发
 - [onChange]?: (current: CurrentTime) => void; //变化的回调函数,current为当前的时间
 - [onEnd]?: () => void; //倒计时结束触发

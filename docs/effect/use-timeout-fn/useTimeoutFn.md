@@ -85,7 +85,7 @@ const {
 
 ## 参数
 - isReady (boolean): 定时器是否执行完
-- [immediate] (boolean):是否立即触发
+- [immediate] (boolean):是否立即触发，默认false
 - [autoStart] (boolean): 是否自动触发，默认true，如果设置为false,则需要调用start触发
 - [stop] (() => void): 取消定时器
 - [start] (() => void): 开始执行定时器
