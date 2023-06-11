@@ -3,12 +3,13 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 type UseRafIntervalFnTeturn = {
   isRunning: boolean;
-  cancel: () => void; //取消定时器
-  reset: () => void; //重新执行定时器
+  stop: () => void; //取消定时器
+  start: () => void; //重新执行定时器
 };
 
 export type UseRafIntervalFnOptions = {
   immediate?: boolean;
+  autoStart?: boolean;
 };
 
 type Timer = {
@@ -49,27 +50,42 @@ const useRafIntervalFn = (
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
-  const { immediate = false } = options || {};
+  const { immediate = false, autoStart = true } = options || {};
   const effectCallback = useRef(effect);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const timerRef = useRef<Timer | null>(null);
+  const [shouldExecuteCallback, setShouldExecuteCallback] = useState(false);
 
   const run = useCallback(() => {
-    setIsRunning(false);
-    cancel();
+    stop();
     if (immediate) {
       setIsRunning(true);
       effectCallback.current();
     }
     timerRef.current = setRafInterval(() => {
-      setIsRunning(true);
+      if (!shouldExecuteCallback) {
+        stop();
+        return;
+      }
+      if (!isRunning) {
+        setIsRunning(true);
+      }
       effectCallback.current();
     }, delay);
-  }, [delay, immediate]);
+  }, [delay,shouldExecuteCallback, immediate]);
 
-  const cancel = useCallback(() => {
+  useEffect(() => {
+    // 防止一开始就因为autoStart为true就执行了定时器
+    if (autoStart) {
+      setShouldExecuteCallback(true);
+      return;
+    }
+    setShouldExecuteCallback(false);
+  }, [autoStart]);
+
+  const stop = useCallback(() => {
+    setIsRunning(false);
     if (timerRef.current) {
-      setIsRunning(false);
       clearRafInterval(timerRef.current.id);
       timerRef.current = null;
     }
@@ -80,18 +96,21 @@ const useRafIntervalFn = (
   }, [effect]);
 
   useEffect(() => {
-    run();
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current.id);
-      }
-    };
-  }, [delay, immediate]);
+    if (shouldExecuteCallback) {
+      run();
+    } else {
+      stop();
+    }
+    return stop;
+  }, [delay, shouldExecuteCallback, immediate]);
 
   return {
     isRunning,
-    cancel,
-    reset: run,
+    stop,
+    start: () => {
+      setShouldExecuteCallback(true);
+      run();
+    },
   };
 };
 

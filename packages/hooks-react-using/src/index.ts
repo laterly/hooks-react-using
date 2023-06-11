@@ -7,6 +7,7 @@ import useLocalStorageState from './state/use-local-storage-state';
 import useSessionStorageState from './state/use-session-storage-state';
 import usePrevious from './state/use-previous';
 import useBoolean from './state/use-boolean';
+import useCountDown from './state/use-count-down';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
 import useWatchLayoutEffect from './effect/use-watch-layout-effect';
@@ -35,6 +36,7 @@ export {
   useSessionStorageState,
   usePrevious,
   useBoolean,
+  useCountDown,
 };
 export {
   useWatchEffect,

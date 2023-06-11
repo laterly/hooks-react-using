@@ -3,9 +3,14 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 type UseRafTimeoutFnTeturn = {
   isReady: boolean;
-  cancel: () => void; //取消定时器
-  reset: () => void; //重新执行定时器
+  stop: () => void; //取消定时器
+  start: () => void; //重新执行定时器
 };
+export type UseRafTimeoutFnOptions = {
+  immediate?: boolean;
+  autoStart?: boolean;
+};
+
 
 type Timer = {
   id: number;
@@ -38,26 +43,47 @@ const clearRafTimeout = (timerId: number) => {
 const useRafTimeoutFn = (
   effect: React.EffectCallback,
   delay = 0,
+  options?: UseRafTimeoutFnOptions,
 ): UseRafTimeoutFnTeturn => {
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
+  const { immediate = false, autoStart = true } = options || {};
   const effectCallback = useRef(effect);
   const [isReady, setIsReady] = useState<boolean>(false);
   const timerRef = useRef<Timer>({ id: 0 });
+  const [shouldExecuteCallback, setShouldExecuteCallback] = useState(false);
 
   const run = useCallback(() => {
-    setIsReady(false);
-    cancel();
-    timerRef.current = setRafTimeout(() => {
+    stop();
+    if (immediate) {
       setIsReady(true);
       effectCallback.current();
+    }
+    timerRef.current = setRafTimeout(() => {
+      if (!shouldExecuteCallback) {
+        stop();
+        return;
+      }
+      if (!isReady) {
+        setIsReady(true);
+      }
+      effectCallback.current();
     }, delay);
-  }, [delay]);
+  }, [delay,shouldExecuteCallback,immediate]);
 
-  const cancel = useCallback(() => {
+  useEffect(() => {
+    // 防止一开始就因为autoStart为true就执行了定时器
+    if (autoStart) {
+      setShouldExecuteCallback(true);
+      return;
+    }
+    setShouldExecuteCallback(false);
+  }, [autoStart]);
+
+  const stop = useCallback(() => {
+    setIsReady(false);
     if (timerRef.current) {
-      setIsReady(false);
       clearRafTimeout(timerRef.current.id);
       timerRef.current = { id: 0 };
     }
@@ -68,18 +94,21 @@ const useRafTimeoutFn = (
   }, [effect]);
 
   useEffect(() => {
-    run();
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current.id);
-      }
-    };
-  }, [delay]);
+    if (shouldExecuteCallback) {
+      run();
+    } else {
+      stop();
+    }
+    return stop;
+  }, [delay, shouldExecuteCallback, immediate]);
 
   return {
     isReady,
-    cancel,
-    reset: run,
+    stop,
+    start: () => {
+      setShouldExecuteCallback(true);
+      run();
+    },
   };
 };
 

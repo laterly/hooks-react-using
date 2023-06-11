@@ -3,26 +3,42 @@ import { isNumber } from 'lodash-es';
 
 export type UseTimeoutFnReturn = {
   isReady: boolean;
-  cancel: () => void; //取消定时器
-  reset: () => void; //重新执行定时器
+  stop: () => void; //取消定时器
+  start: () => void; //重新执行定时器
+};
+export type UseTimeoutFnOptions = {
+  immediate?: boolean;
+  autoStart?: boolean;
 };
 
 const useTimeoutFn = (
   effect: React.EffectCallback,
   delay = 0,
+  options?: UseTimeoutFnOptions,
 ): UseTimeoutFnReturn => {
   if (!isNumber(delay) || delay < 0) {
     throw new Error('delay is not invalid');
   }
+  const { immediate = false, autoStart = true } = options || {};
   const effectCallback = useRef(effect);
   const [isReady, setIsReady] = useState<boolean>(false);
   const timerRef = useRef<number | null>(null);
+  const [shouldExecuteCallback, setShouldExecuteCallback] = useState(false);
 
   const run = useCallback(() => {
-    setIsReady(false);
-    cancel();
-    timerRef.current = window.setTimeout(() => {
+    stop();
+    if (immediate) {
       setIsReady(true);
+      effectCallback.current();
+    }
+    timerRef.current = window.setTimeout(() => {
+      if (!shouldExecuteCallback) {
+        stop();
+        return;
+      }
+      if (!isReady) {
+        setIsReady(true);
+      }
       effectCallback.current();
     }, delay);
 
@@ -31,11 +47,20 @@ const useTimeoutFn = (
         clearTimeout(timerRef.current);
       }
     };
-  }, [delay]);
+  }, [delay,shouldExecuteCallback,immediate]);
 
-  const cancel = useCallback(() => {
+  useEffect(() => {
+    // 防止一开始就因为autoStart为true就执行了定时器
+    if (autoStart) {
+      setShouldExecuteCallback(true);
+      return;
+    }
+    setShouldExecuteCallback(false);
+  }, [autoStart]);
+
+  const stop = useCallback(() => {
+    setIsReady(false);
     if (timerRef.current) {
-      setIsReady(false);
       window.clearTimeout(timerRef.current);
       timerRef.current = null;
     }
@@ -46,13 +71,21 @@ const useTimeoutFn = (
   }, [effect]);
 
   useEffect(() => {
-    run();
-  }, [delay]);
+    if (shouldExecuteCallback) {
+      run();
+    } else {
+      stop();
+    }
+    return stop;
+  }, [delay, shouldExecuteCallback, immediate]);
 
   return {
     isReady,
-    cancel,
-    reset: run,
+    stop,
+    start: () => {
+      setShouldExecuteCallback(true);
+      run();
+    },
   };
 };
 
