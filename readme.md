@@ -28,6 +28,7 @@
 - [`useBoolean`](./docs/state/use-boolean/useBoolean.md) &mdash; useBoolean 管理一个布尔类型的状态值
 - [`useCountDown`](./docs/state/use-count-down/useCountDown.md) &mdash; useCountDown 可用于实现倒计时
 - [`useRafCountDown`](./docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
+- [`useLatest`](./docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用
   <br/>
   <br/>
 

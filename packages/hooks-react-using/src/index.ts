@@ -9,6 +9,7 @@ import usePrevious from './state/use-previous';
 import useBoolean from './state/use-boolean';
 import useCountDown from './state/use-count-down';
 import useRafCountDown from './state/use-raf-count-down';
+import useLatest from './state/use-latest';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
 import useWatchLayoutEffect from './effect/use-watch-layout-effect';
@@ -39,6 +40,7 @@ export {
   useBoolean,
   useCountDown,
   useRafCountDown,
+  useLatest,
 };
 export {
   useWatchEffect,
