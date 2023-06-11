@@ -29,6 +29,7 @@
 - [`useCountDown`](./docs/state/use-count-down/useCountDown.md) &mdash; useCountDown 可用于实现倒计时
 - [`useRafCountDown`](./docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
 - [`useLatest`](./docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用
+- [`useStableState`](./docs/state/use-stable-state/useStableState.md) &mdash; useStableState 与 useState 类似，在 state 是最新值并且 setState 和最新值相等时会阻止 setState
   <br/>
   <br/>
 
