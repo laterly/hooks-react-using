@@ -32,6 +32,7 @@ import useRafIntervalFn from './effect/use-raf-interval-fn';
 import useOnceEffect from './effect/use-once-effect';
 import useOnceUpdateEffect from './effect/use-once-update-effect';
 import useClickOutside from './elements/use-click-outside';
+import useElementSize from './elements/use-element-size';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -69,4 +70,4 @@ export {
   useRafIntervalFn,
 };
 
-export { useClickOutside };
+export { useClickOutside, useElementSize };

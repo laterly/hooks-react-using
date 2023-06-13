@@ -63,3 +63,4 @@
 ### Elements
 
 - [`useClickOutside`](./docs/elements/use-click-outside/useClickOutside.md) &mdash; useClickOutside 监听点击目标元素外部时执行某个回调函数，点击事件也可以自定义，可以是其它的鼠标事件
+- [`useElementSize`](./docs/elements/use-element-size/useElementSize.md) &mdash; useElementSize 可以用于获取DOM元素的尺寸信息

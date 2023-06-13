@@ -28,6 +28,7 @@ import UseCountDownDemo from './demo/use-count-down';
 import UseRafCountDownDemo from './demo/use-raf-count-down';
 import UseStableStateDemo from './demo/use-stable-state';
 import UseClickOutsideDemo from './demo/use-click-outside';
+import UseELementSizeDemo from './demo/use-element-size';
 const App: React.FC = () => {
   return (
     <>
@@ -89,6 +90,8 @@ const App: React.FC = () => {
       <UseToggleDemo />
       <h3>UseClickOutsideDemo</h3>
       <UseClickOutsideDemo />
+      <h3>UseELementSizeDemo</h3>
+      <UseELementSizeDemo />
     </>
   );
 };
