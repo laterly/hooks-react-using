@@ -33,6 +33,7 @@ import useOnceEffect from './effect/use-once-effect';
 import useOnceUpdateEffect from './effect/use-once-update-effect';
 import useClickOutside from './elements/use-click-outside';
 import useElementSize from './elements/use-element-size';
+import useScroll from './elements/use-scroll';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -70,4 +71,4 @@ export {
   useRafIntervalFn,
 };
 
-export { useClickOutside, useElementSize };
+export { useClickOutside, useElementSize, useScroll };

@@ -29,6 +29,7 @@ import UseRafCountDownDemo from './demo/use-raf-count-down';
 import UseStableStateDemo from './demo/use-stable-state';
 import UseClickOutsideDemo from './demo/use-click-outside';
 import UseELementSizeDemo from './demo/use-element-size';
+import UseScrollDemo from './demo/use-scroll';
 const App: React.FC = () => {
   return (
     <>
@@ -92,6 +93,8 @@ const App: React.FC = () => {
       <UseClickOutsideDemo />
       <h3>UseELementSizeDemo</h3>
       <UseELementSizeDemo />
+      <h3>UseScrollDemo</h3>
+      <UseScrollDemo />
     </>
   );
 };
