@@ -35,6 +35,7 @@ import useClickOutside from './elements/use-click-outside';
 import useElementSize from './elements/use-element-size';
 import useScroll from './elements/use-scroll';
 import useHover from './elements/use-hover';
+import useTitle from './elements/use-title';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -72,4 +73,4 @@ export {
   useRafIntervalFn,
 };
 
-export { useClickOutside, useElementSize, useScroll, useHover };
+export { useClickOutside, useElementSize, useScroll, useHover, useTitle };

@@ -66,3 +66,4 @@
 - [`useElementSize`](./docs/elements/use-element-size/useElementSize.md) &mdash; useElementSize 可以用于获取DOM元素的尺寸信息
 - [`useScroll`](./docs/elements/use-scroll/useScroll.md) &mdash; useScroll 用于获取页面滚动位置的信息
 - [`useHover`](./docs/elements/use-hover/useHover.md) &mdash; useHover 鼠标是否正在悬停目标元素上
+- [`useTitle`](./docs/elements/use-title/useTitle.md) &mdash; useTitle 用来动态修改网页的标题

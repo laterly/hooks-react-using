@@ -31,6 +31,7 @@ import UseClickOutsideDemo from './demo/use-click-outside';
 import UseELementSizeDemo from './demo/use-element-size';
 import UseScrollDemo from './demo/use-scroll';
 import UseHoverDemo from './demo/use-hover';
+import UseTitleDemo from './demo/use-title';
 const App: React.FC = () => {
   return (
     <>
@@ -98,6 +99,8 @@ const App: React.FC = () => {
       <UseScrollDemo />
       <h3>UseHoverDemo</h3>
       <UseHoverDemo />
+      <h3>useTitle</h3>
+      <UseTitleDemo />
     </>
   );
 };
