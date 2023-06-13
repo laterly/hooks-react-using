@@ -27,6 +27,7 @@ import UseToggleDemo from './demo/use-toggle';
 import UseCountDownDemo from './demo/use-count-down';
 import UseRafCountDownDemo from './demo/use-raf-count-down';
 import UseStableStateDemo from './demo/use-stable-state';
+import UseClickOutsideDemo from './demo/use-click-outside';
 const App: React.FC = () => {
   return (
     <>
@@ -86,6 +87,8 @@ const App: React.FC = () => {
       <UseStableStateDemo />
       <h3>UseToggleDemo</h3>
       <UseToggleDemo />
+      <h3>UseClickOutsideDemo</h3>
+      <UseClickOutsideDemo />
     </>
   );
 };
