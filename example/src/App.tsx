@@ -30,6 +30,7 @@ import UseStableStateDemo from './demo/use-stable-state';
 import UseClickOutsideDemo from './demo/use-click-outside';
 import UseELementSizeDemo from './demo/use-element-size';
 import UseScrollDemo from './demo/use-scroll';
+import UseHoverDemo from './demo/use-hover';
 const App: React.FC = () => {
   return (
     <>
@@ -95,6 +96,8 @@ const App: React.FC = () => {
       <UseELementSizeDemo />
       <h3>UseScrollDemo</h3>
       <UseScrollDemo />
+      <h3>UseHoverDemo</h3>
+      <UseHoverDemo />
     </>
   );
 };
