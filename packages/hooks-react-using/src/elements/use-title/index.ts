@@ -15,16 +15,14 @@ const useTitle = (newTitle?: string, options?: UseTitleOptions): string => {
     if (!isUndefined(newTitle) && newTitle !== prevTitleRef.current) {
       prevTitleRef.current = newTitle;
 
-      setTimeout(() => {
-        const templateString = isFunction(template)
-          ? template(newTitle)
-          : template ?? '%s';
+      const templateString = isFunction(template)
+        ? template(newTitle)
+        : template ?? '%s';
 
-        const newTitleReplace =
-          templateString?.replace('%s', newTitle || '') || '';
-        document.title = newTitleReplace || '';
-        setTitle(newTitleReplace);
-      }, 0);
+      const newTitleReplace =
+        templateString?.replace('%s', newTitle || '') || '';
+      document.title = newTitleReplace || '';
+      setTitle(newTitleReplace);
     }
     () => {
       if (isPrevOnUnmount) {

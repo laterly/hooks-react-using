@@ -32,6 +32,7 @@ import UseELementSizeDemo from './demo/use-element-size';
 import UseScrollDemo from './demo/use-scroll';
 import UseHoverDemo from './demo/use-hover';
 import UseTitleDemo from './demo/use-title';
+import UseDocumentVisibilityDemo from './demo/use-document-visibility';
 const App: React.FC = () => {
   return (
     <>
@@ -101,6 +102,8 @@ const App: React.FC = () => {
       <UseHoverDemo />
       <h3>useTitle</h3>
       <UseTitleDemo />
+      <h3>UseDocumentVisibilityDemo</h3>
+      <UseDocumentVisibilityDemo />
     </>
   );
 };
