@@ -32,6 +32,6 @@ export default MyComponent;
 ```typescript
 type VisibilityState = 'visible' | 'hidden' | 'prerender' | undefined;
 
-const documentVisibility = useDocumentVisibility():VisibilityState;
+const visibilityState = useDocumentVisibility():VisibilityState;
 
 ```

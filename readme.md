@@ -67,3 +67,4 @@
 - [`useScroll`](./docs/elements/use-scroll/useScroll.md) &mdash; useScroll 用于获取页面滚动位置的信息
 - [`useHover`](./docs/elements/use-hover/useHover.md) &mdash; useHover 鼠标是否正在悬停目标元素上
 - [`useTitle`](./docs/elements/use-title/useTitle.md) &mdash; useTitle 用来动态修改网页的标题
+- [`useDocumentVisibility`](./docs/elements/use-document-visibility/useDocumentVisibility.md) &mdash; useDocumentVisibility 检测当前页面是否处于活动状态（即当前窗口的可见性）
