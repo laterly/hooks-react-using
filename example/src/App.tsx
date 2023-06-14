@@ -33,6 +33,7 @@ import UseScrollDemo from './demo/use-scroll';
 import UseHoverDemo from './demo/use-hover';
 import UseTitleDemo from './demo/use-title';
 import UseDocumentVisibilityDemo from './demo/use-document-visibility';
+import UseEventListenerDemo from './demo/use-event-listener'
 const App: React.FC = () => {
   return (
     <>
@@ -104,6 +105,8 @@ const App: React.FC = () => {
       <UseTitleDemo />
       <h3>UseDocumentVisibilityDemo</h3>
       <UseDocumentVisibilityDemo />
+      <h3>UseEventListenerDemo</h3>
+      <UseEventListenerDemo />
     </>
   );
 };

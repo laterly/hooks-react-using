@@ -40,12 +40,12 @@ const useClickOutside = <T extends keyof DocumentEventMap>(
   useEffect(() => {
     const eventNames = getEventNames();
     eventNames.forEach(evt => {
-      document.addEventListener(evt, handler as EventListener, true);
+      document.addEventListener(evt, handler as EventListener, false);
     });
 
     return () => {
       eventNames.forEach(evt => {
-        document.removeEventListener(evt, handler as EventListener, true);
+        document.removeEventListener(evt, handler as EventListener, false);
       });
     };
   }, [handler, getEventNames]);

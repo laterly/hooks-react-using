@@ -68,3 +68,4 @@
 - [`useHover`](./docs/elements/use-hover/useHover.md) &mdash; useHover 鼠标是否正在悬停目标元素上
 - [`useTitle`](./docs/elements/use-title/useTitle.md) &mdash; useTitle 用来动态修改网页的标题
 - [`useDocumentVisibility`](./docs/elements/use-document-visibility/useDocumentVisibility.md) &mdash; useDocumentVisibility 检测当前页面是否处于活动状态（即当前窗口的可见性）
+- [`useEventListener`](./docs/elements/use-event-listener/useEventListener.md) &mdash; useEventListener 用于封装原生的 addEventListener 方法，使得在函数式组件中添加事件监听器更加方便
