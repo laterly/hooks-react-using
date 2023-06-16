@@ -71,3 +71,4 @@
 - [`useEventListener`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-event-listener/useEventListener.md) &mdash; useEventListener 用于封装原生的 addEventListener 方法，使得在函数式组件中添加事件监听器更加方便
 - [`useLongPress`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-long-press/useLongPress.md) &mdash; useLongPress 用于在长按某个元素时触发回调函数
 - [`useFocusWithin`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-focus-within/useFocusWithin.md) &mdash; useFocusWithin 监听元素的焦点变化
+- [`useScrollLock`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-scroll-lock/useScrollLock.md) &mdash; useScrollLock 可以用来禁止页面滚动
