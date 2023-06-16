@@ -14,6 +14,9 @@ const useScrollLock = <T extends Element>(
   const savedTarget = useRef<EventTarget | null>(null);
 
   const setLockState = useCallback((newState?: boolean) => {
+    if(!savedTarget.current){
+      throw new Error('找不到target');
+    }
     if (isBoolean(newState)) {
       setIsLocked(newState);
       return;
@@ -33,7 +36,7 @@ const useScrollLock = <T extends Element>(
   }, []);
 
   useEffect(() => {
-    let el: Target<T | null>;
+    let el;
     if (target) {
       if (isFunction(target)) {
         el = target();
@@ -43,10 +46,11 @@ const useScrollLock = <T extends Element>(
         el = target;
       }
     } else {
-      el = window;
+      el = window.document.body;
     }
-    if (el) {
-      savedTarget.current = el;
+    savedTarget.current = el;
+    if (savedTarget.current) {
+     
       cleanEvent();
       if (isLocked) {
         savedTarget.current?.addEventListener('touchmove', lockScroll, {
@@ -55,19 +59,15 @@ const useScrollLock = <T extends Element>(
         savedTarget.current?.addEventListener('mousewheel', lockScroll, {
           passive: false,
         });
-        //@ts-ignore
-        savedTarget.current.style.overflow = 'hidden';
+        (savedTarget.current as HTMLDivElement).style.overflow = 'hidden';
       } else {
-        //@ts-ignore
-        savedTarget.current.style.overflow = '';
+        (savedTarget.current as HTMLDivElement).style.overflow = 'auto';
       }
     }
 
     return () => {
       if (savedTarget.current) {
         cleanEvent();
-        //@ts-ignore
-        savedTarget.current.style.overflow = '';
       }
     };
   }, [target, isLocked]);

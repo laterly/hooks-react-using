@@ -6,14 +6,14 @@ function Modal() {
   const [isOpen, setIsOpen] = useState<boolean>();
 
   // 使用 useScrollLock 钩子来防止在打开模态框时页面滚动
-  const { isLocked, toggleLock } = useScrollLock(modalRef);
+  const { isLocked, toggleLock } = useScrollLock(modalRef, false);
 
   return (
     <>
       <button
         className="close-button"
         onClick={() => {
-          setIsOpen(true);
+          setIsOpen((val) => !val);
         }}
       >
         Open Modal
@@ -33,6 +33,14 @@ function Modal() {
               height: 600,
             }}
           >
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
+            <p>Modal content goes here.</p>
             <p>Modal content goes here.</p>
           </div>
         </div>
