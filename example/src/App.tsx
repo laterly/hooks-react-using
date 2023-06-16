@@ -33,7 +33,8 @@ import UseScrollDemo from './demo/use-scroll';
 import UseHoverDemo from './demo/use-hover';
 import UseTitleDemo from './demo/use-title';
 import UseDocumentVisibilityDemo from './demo/use-document-visibility';
-import UseEventListenerDemo from './demo/use-event-listener'
+import UseEventListenerDemo from './demo/use-event-listener';
+import UseLongPressDemo from './demo/use-long-press';
 const App: React.FC = () => {
   return (
     <>
@@ -107,6 +108,8 @@ const App: React.FC = () => {
       <UseDocumentVisibilityDemo />
       <h3>UseEventListenerDemo</h3>
       <UseEventListenerDemo />
+      <h3>UseLongPressDemo</h3>
+      <UseLongPressDemo />
     </>
   );
 };

@@ -38,6 +38,7 @@ import useHover from './elements/use-hover';
 import useTitle from './elements/use-title';
 import useDocumentVisibility from './elements/use-document-visibility';
 import useEventListener from './elements/use-event-listener';
+import useLongPress from './elements/use-long-press';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -83,4 +84,5 @@ export {
   useTitle,
   useDocumentVisibility,
   useEventListener,
+  useLongPress
 };

@@ -69,3 +69,4 @@
 - [`useTitle`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-title/useTitle.md) &mdash; useTitle 用来动态修改网页的标题
 - [`useDocumentVisibility`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-document-visibility/useDocumentVisibility.md) &mdash; useDocumentVisibility 检测当前页面是否处于活动状态（即当前窗口的可见性）
 - [`useEventListener`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-event-listener/useEventListener.md) &mdash; useEventListener 用于封装原生的 addEventListener 方法，使得在函数式组件中添加事件监听器更加方便
+- [`useLongPress`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-long-press/useLongPress.md) &mdash; useLongPress 用于在长按某个元素时触发回调函数
