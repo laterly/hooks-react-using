@@ -40,6 +40,7 @@ import useDocumentVisibility from './elements/use-document-visibility';
 import useEventListener from './elements/use-event-listener';
 import useLongPress from './elements/use-long-press';
 import useFocusWithin from './elements/use-focus-within';
+import useScrollLock from './elements/use-scroll-lock';
 export { useMount, useUnmount };
 export {
   useSetState,
@@ -87,4 +88,5 @@ export {
   useEventListener,
   useLongPress,
   useFocusWithin,
+  useScrollLock,
 };

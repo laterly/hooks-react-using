@@ -36,6 +36,7 @@ import UseDocumentVisibilityDemo from './demo/use-document-visibility';
 import UseEventListenerDemo from './demo/use-event-listener';
 import UseLongPressDemo from './demo/use-long-press';
 import UseFocusWithinDemo from './demo/use-focus-within';
+import UseScrollLockDemo from './demo/use-scroll-lock';
 const App: React.FC = () => {
   return (
     <>
@@ -113,6 +114,8 @@ const App: React.FC = () => {
       <UseLongPressDemo />
       <h3>UseFocusWithinDemo</h3>
       <UseFocusWithinDemo />
+      <h3>UseScrollLockDemo</h3>
+      <UseScrollLockDemo />
     </>
   );
 };

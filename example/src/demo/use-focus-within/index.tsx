@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { useFocusWithin } from "../../../../packages/hooks-react-using/src";
 
 function MyComponent() {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const isFocused = useFocusWithin(inputRef, {
+  const target = useRef<null>(null);
+  const isFocused = useFocusWithin(target, {
     onBlur() {
       console.log("onBlue");
     },
@@ -17,8 +17,12 @@ function MyComponent() {
 
   return (
     <div>
-      <input ref={inputRef} />
-      <div>{isFocused}</div>
+      <form ref={target}>
+        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="age" />
+        <input type="text" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+      </form>
       <p>Input is focused: {isFocused ? "yes" : "no"}</p>
     </div>
   );
