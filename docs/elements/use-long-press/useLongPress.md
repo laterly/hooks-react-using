@@ -55,7 +55,7 @@ interface UseLongPressOptions {
   delay?: number;
   onClick?: (event: PointerEvent) => void;
 }
-const useLongPress = <T extends Element>(
+function useLongPress<T extends Element>(
   handler: (evt: PointerEvent) => void,
   target: Target<T | null>,
   options: UseLongPressOptions = {},

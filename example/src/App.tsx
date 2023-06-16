@@ -35,6 +35,7 @@ import UseTitleDemo from './demo/use-title';
 import UseDocumentVisibilityDemo from './demo/use-document-visibility';
 import UseEventListenerDemo from './demo/use-event-listener';
 import UseLongPressDemo from './demo/use-long-press';
+import UseFocusWithinDemo from './demo/use-focus-within';
 const App: React.FC = () => {
   return (
     <>
@@ -110,6 +111,8 @@ const App: React.FC = () => {
       <UseEventListenerDemo />
       <h3>UseLongPressDemo</h3>
       <UseLongPressDemo />
+      <h3>UseFocusWithinDemo</h3>
+      <UseFocusWithinDemo />
     </>
   );
 };
