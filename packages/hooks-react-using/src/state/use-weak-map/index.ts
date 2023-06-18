@@ -1,25 +1,29 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { isEqual, isWeakMap } from 'lodash';
 
-type UseMapEntry<K extends WeakKey, V> = [key: K, value: V];
+type UseWeakMapEntry<K extends WeakKey, V> = [key: K, value: V];
 
-type UseMapEntryState<K extends WeakKey, V> =
-  | Iterable<UseMapEntry<K, V>>
+type UseWeakMapEntryState<K extends WeakKey, V> =
+  | Iterable<UseWeakMapEntry<K, V>>
   | WeakMap<K, V>;
 
 type UseMapActions<K extends WeakKey, V> = {
   set: (key: K, value: V) => void;
+  setAll: (entries: Iterable<[K, V]>) => void;
   get: (key: K) => V | undefined;
   has: (key: K) => boolean;
   deleteKey: (key: K) => void;
   clear: () => void;
-  reset: (initialEntry?: UseMapEntryState<K, V>) => void;
+  reset: (initialEntry?: UseWeakMapEntryState<K, V>) => void;
 };
 
-type UseMapReturn<K extends WeakKey, V> = [WeakMap<K, V>, UseMapActions<K, V>];
+type UseWeakMapReturn<K extends WeakKey, V> = [
+  WeakMap<K, V>,
+  UseMapActions<K, V>,
+];
 
 const initialEntryMap = <K extends WeakKey, V>(
-  initialEntry?: UseMapEntryState<K, V>,
+  initialEntry?: UseWeakMapEntryState<K, V>,
 ): WeakMap<K, V> => {
   let curMap;
   if (!initialEntry) {
@@ -38,9 +42,9 @@ const initialEntryMap = <K extends WeakKey, V>(
   return curMap;
 };
 
-const useMap = <K extends WeakKey, V>(
-  initialEntry?: UseMapEntryState<K, V>,
-): UseMapReturn<K, V> => {
+const useWeakMap = <K extends WeakKey, V>(
+  initialEntry?: UseWeakMapEntryState<K, V>,
+): UseWeakMapReturn<K, V> => {
   const weakMapRef = useRef<WeakMap<K, V>>(initialEntryMap(initialEntry));
 
   const [, setState] = useState(false);
@@ -48,14 +52,21 @@ const useMap = <K extends WeakKey, V>(
   const update = useCallback(() => setState(val => !val), []);
 
   const set = useCallback((key: K, value: V) => {
-    if (weakMapRef.current.get(key) === value) {
+    if (isEqual(weakMapRef.current.get(key), value)) {
       return;
     }
     weakMapRef.current.set(key, value);
     update();
   }, []);
 
-  const reset = useCallback((initialEntry?: UseMapEntryState<K, V>) => {
+  const setAll = useCallback((newData: Iterable<[K, V]>) => {
+    for (const [entry, value] of newData) {
+      weakMapRef.current.set(entry, value);
+    }
+    update();
+  }, []);
+
+  const reset = useCallback((initialEntry?: UseWeakMapEntryState<K, V>) => {
     let curMap;
     try {
       curMap = initialEntryMap(initialEntry);
@@ -91,7 +102,10 @@ const useMap = <K extends WeakKey, V>(
     };
   }, []);
 
-  return [weakMapRef.current, { set, get, has, deleteKey, clear, reset }];
+  return [
+    weakMapRef.current,
+    { set, setAll, get, has, deleteKey, clear, reset },
+  ];
 };
 
-export default useMap;
+export default useWeakMap;
