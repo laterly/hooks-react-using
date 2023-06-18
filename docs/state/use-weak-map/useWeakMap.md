@@ -12,7 +12,7 @@ const key2 = {a:1};
 const key3 = {};
 const Example = () => {
   const [isShow, setIsShow] = useState(true);
-  const [weakMap, { set, setAll, get, deleteKey, has, reset, clear }] =
+  const { set, setAll, get, deleteKey, has, reset, clear } =
     useWeakMap<object, string | number>([[key, "hello world"]]);
   useEffect(() => {
     console.log("121", weakMap);
@@ -82,10 +82,8 @@ export default Example;
 ## API
 
 ```typescript
-const [
-    weakMap,
-    { set, setAll, get, has, deleteKey, clear, reset },
-  ]; = useWeakMap();
+const 
+    { set, setAll, get, has, deleteKey, clear, reset } = useWeakMap();
 ```
 
 ## 参数类型
@@ -107,10 +105,8 @@ type UseMapActions<K extends WeakKey, V> = {
   reset: (initialEntry?: UseWeakMapEntryState<K, V>) => void;
 };
 
-type UseWeakMapReturn<K extends WeakKey, V> = [
-  WeakMap<K, V>,
-  UseMapActions<K, V>,
-];
+type UseWeakMapReturn<K extends WeakKey, V> = UseMapActions<K, V>,
+
 
 function useWeakMap<K extends WeakKey, V>(
   initialEntry?: UseWeakMapEntryState<K, V>,

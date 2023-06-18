@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import { isEqual, isWeakMap } from 'lodash-es';
 
 type UseWeakMapEntry<K extends WeakKey, V> = [key: K, value: V];
@@ -17,10 +17,7 @@ type UseMapActions<K extends WeakKey, V> = {
   reset: (initialEntry?: UseWeakMapEntryState<K, V>) => void;
 };
 
-type UseWeakMapReturn<K extends WeakKey, V> = [
-  WeakMap<K, V>,
-  UseMapActions<K, V>,
-];
+type UseWeakMapReturn<K extends WeakKey, V> = UseMapActions<K, V>;
 
 const initialEntryMap = <K extends WeakKey, V>(
   initialEntry?: UseWeakMapEntryState<K, V>,
@@ -45,23 +42,30 @@ const initialEntryMap = <K extends WeakKey, V>(
 const useWeakMap = <K extends WeakKey, V>(
   initialEntry?: UseWeakMapEntryState<K, V>,
 ): UseWeakMapReturn<K, V> => {
-  const weakMapRef = useRef<WeakMap<K, V>>(initialEntryMap(initialEntry));
+  const [weakMap, setWeakMap] = useState(() => {
+    try {
+      return initialEntryMap(initialEntry);
+    } catch (error) {
+      console.error(error);
+      return new WeakMap();
+    }
+  });
 
   const [, setState] = useState(false);
 
   const update = useCallback(() => setState(val => !val), []);
 
   const set = useCallback((key: K, value: V) => {
-    if (isEqual(weakMapRef.current.get(key), value)) {
+    if (isEqual(weakMap.get(key), value)) {
       return;
     }
-    weakMapRef.current.set(key, value);
+    weakMap.set(key, value);
     update();
   }, []);
 
   const setAll = useCallback((newData: Iterable<[K, V]>) => {
     for (const [entry, value] of newData) {
-      weakMapRef.current.set(entry, value);
+      weakMap.set(entry, value);
     }
     update();
   }, []);
@@ -74,32 +78,29 @@ const useWeakMap = <K extends WeakKey, V>(
       console.error(error);
       curMap = new WeakMap();
     }
-    weakMapRef.current = curMap as WeakMap<K, V>;
+    setWeakMap(curMap);
     update();
   }, []);
 
   const get = useCallback((key: K) => {
-    return weakMapRef.current?.get(key);
-  }, []);
+    return weakMap?.get(key);
+  }, [weakMap]);
 
-  const has = useCallback((key: K) => weakMapRef.current?.has(key), []);
+  const has = useCallback((key: K) => weakMap?.has(key), [weakMap]);
 
   const deleteKey = useCallback((key: K) => {
-    if (weakMapRef.current?.has(key)) {
-      weakMapRef.current.delete(key);
+    if (weakMap?.has(key)) {
+      weakMap.delete(key);
     }
     update();
-  }, []);
+  }, [weakMap]);
 
   const clear = useCallback(() => {
-    weakMapRef.current = new WeakMap<K, V>() as WeakMap<K, V>;
+    setWeakMap(new WeakMap);
     update();
   }, []);
 
-  return [
-    weakMapRef.current,
-    { set, setAll, get, has, deleteKey, clear, reset },
-  ];
+  return { set, setAll, get, has, deleteKey, clear, reset };
 };
 
 export default useWeakMap;

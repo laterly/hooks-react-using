@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useWeakSet } from "../../../../packages/hooks-react-using/src";
 
 type Item = {
@@ -13,7 +12,7 @@ const itemList: Item[] = [
 ];
 
 function App() {
-  const [_, { add, has, remove }] = useWeakSet<Item>();
+  const { add, has, remove } = useWeakSet<Item>();
   const handleItemClick = (item: Item) => {
     if (has(item)) {
       remove(item);

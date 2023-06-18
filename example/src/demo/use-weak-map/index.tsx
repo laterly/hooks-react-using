@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useWeakMap } from "../../../../packages/hooks-react-using/src";
 const key = {};
 const key2 = {a:1};
 const key3 = {};
 const Example = () => {
   const [isShow, setIsShow] = useState(true);
-  const [weakMap, { set, setAll, get, deleteKey, has, reset, clear }] =
+  const { set, setAll, get, deleteKey, has, reset, clear } =
     useWeakMap<object, string | number>([[key, "hello world"]]);
-  useEffect(() => {
-    console.log("121", weakMap);
-  }, [weakMap]);
 
   return (
     <>

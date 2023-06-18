@@ -20,7 +20,7 @@ const itemList: Item[] = [
 ];
 
 function App() {
-  const [set, { add, has, remove }] = useWeakSet<Item>();
+  const { add, has, remove } = useWeakSet<Item>();
   const handleItemClick = (item: Item) => {
     if (has(item)) {
       remove(item);
@@ -57,7 +57,7 @@ export default App;
 ## API
 
 ```typescript
-const [set, { add, remove, clear, has }]; = useWeakSet();
+const { add, remove, clear, has }; = useWeakSet();
 ```
 
 ## 参数类型
@@ -66,15 +66,12 @@ const [set, { add, remove, clear, has }]; = useWeakSet();
 
 type UseSetState<T extends object> = Iterable<T> | WeakSet<T>;
 
-type UseSetReturn<T extends object> = [
-  WeakSet<T>,
-  {
+type UseSetReturn<T extends object> = {
     add: (value: T) => void;
     remove: (value: T) => void;
     clear: () => void;
     has: (value: T) => boolean;
-  },
-];
+  }
 
 function useWeakSet<T extends object>(
   initialState?: UseSetState<T>,

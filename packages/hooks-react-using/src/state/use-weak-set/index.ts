@@ -3,15 +3,13 @@ import { useState, useCallback } from 'react';
 
 type UseSetState<T extends object> = Iterable<T> | WeakSet<T>;
 
-type UseSetReturn<T extends object> = [
-  WeakSet<T>,
-  {
+type UseSetReturn<T extends object> = {
     add: (value: T) => void;
     remove: (value: T) => void;
     clear: () => void;
     has: (value: T) => boolean;
-  },
-];
+  }
+
 
 const useWeakSet = <T extends object>(
   initialState?: UseSetState<T>,
@@ -42,12 +40,12 @@ const useWeakSet = <T extends object>(
   const add = useCallback((value: T) => {
     set.add(value);
     update();
-  }, []);
+  }, [set]);
 
   const remove = useCallback((value: T) => {
     set.delete(value);
     update();
-  }, []);
+  }, [set]);
 
   const clear = useCallback(() => {
     setSet(new WeakSet());
@@ -60,7 +58,7 @@ const useWeakSet = <T extends object>(
     [set],
   );
 
-  return [set, { add, remove, clear, has }];
+  return { add, remove, clear, has };
 };
 
 export default useWeakSet;
