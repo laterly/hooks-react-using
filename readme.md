@@ -10,14 +10,16 @@
   <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 </div>
 
-### Lifecycles
+## API
+
+#### `Lifecycles`
 
 - [`useMount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-mount/useMount.md) &mdash; useMount 只在组件初始化时执行。
 - [`useUnmount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-unmount/useUnmount.md) &mdash; useUnmount 在组件卸载时执行的。
   <br/>
   <br/>
 
-### State
+#### `State`
 
 - [`useSetState`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-set-state/useSetState.md) &mdash; useSetState 管理 object 类型 state
 - [`useDebounce`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-debounce/useDebounce.md) &mdash; useDebounce 控制值在多次更新的防抖。
@@ -34,7 +36,7 @@
   <br/>
   <br/>
 
-### Effect
+#### `Effect`
 
 - [`useWatchEffect`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 与 useEffect 类似，可以观察哪个依赖变化触发了 useEffect 的执行，观察依赖变更的新值和旧值，并且可以取消观察。
 - [`useWatchLayoutEffect`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-watch-layout-effect/useWatchLayoutEffect.md) &mdash; useWatchLayoutEffect 与 useLayoutEffect 类似，可以观察哪个依赖变化触发了 useEffect 的执行，观察依赖变更的新值和旧值，并且可以取消观察。
@@ -60,7 +62,7 @@
   <br/>
   <br/>
 
-### Elements
+#### `Elements`
 
 - [`useClickOutside`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-click-outside/useClickOutside.md) &mdash; useClickOutside 监听点击目标元素外部时执行某个回调函数，点击事件也可以自定义，可以是其它的鼠标事件
 - [`useElementSize`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-element-size/useElementSize.md) &mdash; useElementSize 可以用于获取DOM元素的尺寸信息
