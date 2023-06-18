@@ -56,7 +56,6 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useMount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-mount/useMount.md) &mdash; useMount 只在组件初始化时执行。
 - [`useUnmount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-unmount/useUnmount.md) &mdash; useUnmount 在组件卸载时执行的。
   <br/>
-  <br/>
 
 #### `State`
 
@@ -72,7 +71,6 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useRafCountDown`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
 - [`useLatest`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用
 - [`useStableState`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-stable-state/useStableState.md) &mdash; useStableState 与 useState 类似，在 state 是最新值并且 setState 和最新值相等时会阻止 setState
-  <br/>
   <br/>
 
 #### `Effect`
@@ -98,7 +96,6 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useRafTimeoutFn`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-raf-timeout-fn/useRafTimeoutFn.md) &mdash; useRafTimeoutFn 在指定的时间后执行一个函数，基于 requestAnimationFrame 实现
 - [`useIntervalFn`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-interval-fn/useIntervalFn.md) &mdash; useIntervalFn 定时器执行一个函数
 - [`useRafIntervalFn`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-raf-interval-fn/useRafIntervalFn.md) &mdash; useRafIntervalFn 定时器执行一个函数，基于 requestAnimationFrame 实现
-  <br/>
   <br/>
 
 #### `Elements`
