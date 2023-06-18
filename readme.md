@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <h1>
     hooks-react-using
   </h1>
@@ -7,7 +7,13 @@
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
   </sup>
-</div>
+</div> -->
+
+## hooks-react-using
+
+![npm](https://img.shields.io/npm/v/hooks-react-using)
+![GitHub stars](https://img.shields.io/github/stars/laterly/hooks-react-using?style=social)
+
 
 ## Features
 
