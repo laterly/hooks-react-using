@@ -1,4 +1,4 @@
-<!-- <div>
+<div>
   <h1>
     hooks-react-using
   </h1>
@@ -6,13 +6,16 @@
     <a href="https://www.npmjs.com/package/hooks-react-using">
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
+     <a href="https://github.com/laterly/hooks-react-using/">
+       <img src="https://img.shields.io/github/stars/laterly/hooks-react-using?style=social" alt="github stars" />
+    </a>
   </sup>
-</div> -->
+</div>
 
-## hooks-react-using
+<!-- ## hooks-react-using
 
 ![npm](https://img.shields.io/npm/v/hooks-react-using)
-![GitHub stars](https://img.shields.io/github/stars/laterly/hooks-react-using?style=social)
+![GitHub stars](https://img.shields.io/github/stars/laterly/hooks-react-using?style=social) -->
 
 
 ## Features
