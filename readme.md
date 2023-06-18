@@ -74,6 +74,7 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useRafCountDown`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
 - [`useLatest`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用
 - [`useStableState`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-stable-state/useStableState.md) &mdash; useStableState 与 useState 类似，在 state 是最新值并且 setState 和最新值相等时会阻止 setState
+- [`useForceUpdate`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-force-update/useForceUpdate.md) &mdash; useForceUpdate 强制组件重新渲染
 - [`useMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-map/useMap.md) &mdash; useMap 管理 new Map() 创建的映射对象的状态
   <br/>
 
