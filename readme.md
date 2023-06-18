@@ -7,10 +7,43 @@
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
   </sup>
-  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 </div>
 
-## API
+## Features
+
+* 封装了常用React Hooks的库
+* 更轻松地管理组件中的状态和逻辑
+* 支持 TypeScript
+
+
+## Install
+
+by using `npm`:
+
+```bash
+$ npm install hooks-react-using --save
+```
+
+by using `yarn`:
+
+```bash
+$ yarn add hooks-react-using
+```
+
+by using `pnpm`:
+
+```bash
+$ pnpm install hooks-react-using --save
+```
+
+
+## Basic usage
+
+```ts
+import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
+```
+
+## API Hooks
 
 #### `Lifecycles`
 
