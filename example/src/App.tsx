@@ -40,6 +40,7 @@ import UseScrollLockDemo from './demo/use-scroll-lock';
 import UseMapDemo from './demo/use-map';
 import UseWeakMapDemo from './demo/use-weak-map';
 import UseSetDemo from './demo/use-set';
+import UseWeakSetDemo from './demo/use-weak-set'; 
 const App: React.FC = () => {
   return (
     <>
@@ -125,6 +126,8 @@ const App: React.FC = () => {
       <UseWeakMapDemo />
       <h3>UseSetDemo</h3>
       <UseSetDemo />
+      <h3>UseWeakSetDemo</h3>
+      <UseWeakSetDemo />
     </>
   );
 };

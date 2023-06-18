@@ -96,12 +96,6 @@ const useWeakMap = <K extends WeakKey, V>(
     update();
   }, []);
 
-  useEffect(() => {
-    return () => {
-      clear();
-    };
-  }, []);
-
   return [
     weakMapRef.current,
     { set, setAll, get, has, deleteKey, clear, reset },

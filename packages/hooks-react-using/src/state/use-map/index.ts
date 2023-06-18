@@ -127,12 +127,6 @@ const useMap = <K, V = any>(
 
   const size = useMemo(() => map.size, [map]);
 
-  useEffect(() => {
-    return () => {
-      clear();
-    };
-  }, []);
-
   return [
     map,
     {
