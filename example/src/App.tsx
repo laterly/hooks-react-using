@@ -37,6 +37,7 @@ import UseEventListenerDemo from './demo/use-event-listener';
 import UseLongPressDemo from './demo/use-long-press';
 import UseFocusWithinDemo from './demo/use-focus-within';
 import UseScrollLockDemo from './demo/use-scroll-lock';
+import UseMapDemo from './demo/use-map';
 const App: React.FC = () => {
   return (
     <>
@@ -116,6 +117,8 @@ const App: React.FC = () => {
       <UseFocusWithinDemo />
       <h3>UseScrollLockDemo</h3>
       <UseScrollLockDemo />
+      <h3>UseWeakMapDemo</h3>
+      <UseMapDemo />
     </>
   );
 };
