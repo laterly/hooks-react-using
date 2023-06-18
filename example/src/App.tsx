@@ -39,6 +39,7 @@ import UseFocusWithinDemo from './demo/use-focus-within';
 import UseScrollLockDemo from './demo/use-scroll-lock';
 import UseMapDemo from './demo/use-map';
 import UseWeakMapDemo from './demo/use-weak-map';
+import UseSetDemo from './demo/use-set';
 const App: React.FC = () => {
   return (
     <>
@@ -122,6 +123,8 @@ const App: React.FC = () => {
       <UseMapDemo />
       <h3>UseWeakMapDemo</h3>
       <UseWeakMapDemo />
+      <h3>UseSetDemo</h3>
+      <UseSetDemo />
     </>
   );
 };

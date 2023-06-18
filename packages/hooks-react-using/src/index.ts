@@ -14,6 +14,7 @@ import useStableState from './state/use-stable-state';
 import useForceUpdate from './state/use-force-update';
 import useMap from './state/use-map';
 import useWeakMap from './state/use-weak-map';
+import useSet from './state/use-set';
 import useToggle from './state/use-toggle';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
@@ -61,6 +62,7 @@ export {
   useForceUpdate,
   useMap,
   useWeakMap,
+  useSet,
 };
 export {
   useWatchEffect,

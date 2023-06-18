@@ -77,6 +77,7 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useForceUpdate`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-force-update/useForceUpdate.md) &mdash; useForceUpdate 强制组件重新渲染
 - [`useMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-map/useMap.md) &mdash; useMap 管理 new Map() 创建的映射对象的状态
 - [`useWeakMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-weak-map/useWeakMap.md) &mdash; useMap 管理 new WeakMap() 创建的映射对象的状态
+- [`useSet`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-set/useSet.md) &mdash; useSet 管理new Set()，集合类型的数据结构
   <br/>
 
 #### `Effect`

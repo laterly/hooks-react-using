@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect } from 'react';
-import { isEqual, isMap } from 'lodash';
+import { useState, useCallback, useEffect, useMemo } from 'react';
+import { isEqual, isMap } from 'lodash-es';
 
 type UseMapEntry<K, V> = [key: K, value: V];
 
@@ -16,6 +16,7 @@ type UseMapActions<K, V> = {
   values: () => IterableIterator<V>;
   entries: () => IterableIterator<UseMapEntry<K, V>>;
   reset: (initialEntry?: UseMapEntryState<K, V>) => void;
+  size: number;
 };
 
 type UseMapReturn<K, V> = [Map<K, V>, UseMapActions<K, V>];
@@ -112,8 +113,10 @@ const useMap = <K, V = any>(
   );
 
   const clear = useCallback(() => {
-    map.clear();
-    setMap(new Map());
+    if (map.size > 0) {
+      map.clear();
+      setMap(new Map());
+    }
   }, [map]);
 
   const keys = useCallback(() => map.keys(), [map]);
@@ -121,6 +124,8 @@ const useMap = <K, V = any>(
   const values = useCallback(() => map.values(), [map]);
 
   const entries = useCallback(() => map.entries(), [map]);
+
+  const size = useMemo(() => map.size, [map]);
 
   useEffect(() => {
     return () => {
@@ -130,7 +135,19 @@ const useMap = <K, V = any>(
 
   return [
     map,
-    { set, get, has, deleteKey, clear, keys, values, entries, reset, setAll },
+    {
+      set,
+      get,
+      has,
+      deleteKey,
+      clear,
+      keys,
+      values,
+      entries,
+      reset,
+      setAll,
+      size,
+    },
   ];
 };
 

@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { isEqual, isWeakMap } from 'lodash';
+import { isEqual, isWeakMap } from 'lodash-es';
 
 type UseWeakMapEntry<K extends WeakKey, V> = [key: K, value: V];
 
@@ -29,9 +29,9 @@ const initialEntryMap = <K extends WeakKey, V>(
   if (!initialEntry) {
     curMap = new WeakMap();
   } else if (isWeakMap(initialEntry)) {
-    curMap = new WeakMap(initialEntry as Iterable<[K, V]>);
+    curMap = new WeakMap(initialEntry as Iterable<readonly [object, V]>);
   } else if (Array.isArray(initialEntry)) {
-    curMap = new WeakMap(initialEntry as Iterable<[K, V]>);
+    curMap = new WeakMap(initialEntry as Iterable<readonly [object, V]>);
   } else if (initialEntry instanceof WeakMap) {
     // 处理 WeakMap 类型的输入
     curMap = initialEntry;
@@ -39,7 +39,7 @@ const initialEntryMap = <K extends WeakKey, V>(
     throw new Error('Invalid initial value for useMap');
   }
 
-  return curMap;
+  return curMap as WeakMap<K, V>;
 };
 
 const useWeakMap = <K extends WeakKey, V>(
@@ -74,7 +74,7 @@ const useWeakMap = <K extends WeakKey, V>(
       console.error(error);
       curMap = new WeakMap();
     }
-    weakMapRef.current = curMap;
+    weakMapRef.current = curMap as WeakMap<K, V>;
     update();
   }, []);
 
@@ -92,7 +92,7 @@ const useWeakMap = <K extends WeakKey, V>(
   }, []);
 
   const clear = useCallback(() => {
-    weakMapRef.current = new WeakMap();
+    weakMapRef.current = new WeakMap<K, V>() as WeakMap<K, V>;
     update();
   }, []);
 

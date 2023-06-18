@@ -6,7 +6,7 @@ useWeakMap 管理new WeakMap()，用于创建一个映射对象的
 
 ```tsx
 import { useEffect, useState } from "react";
-import { useWeakMap } from "../../../../packages/hooks-react-using/src";
+import { useWeakMap } from "hooks-react-using";
 const key = {};
 const key2 = {a:1};
 const key3 = {};
