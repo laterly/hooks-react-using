@@ -1,6 +1,6 @@
 # useWeakMap
 
-useWeakMap 管理new WeakMap()，用于创建一个映射对象的
+useWeakMap 管理new WeakMap()，用于创建一个映射对象的，它是一个弱引用版本的 Map。与 Map 不同的是，它只接受对象作为键，而且这些对象是弱引用的，即当该对象没有其他引用时，垃圾回收机制会将其自动清除
 
 ### 基础用法
 

@@ -1,6 +1,6 @@
 # useSet
 
-useSet 管理new Set()，集合类型的数据结构
+useSet 管理 new Set() 集合类型的数据结构
 
 ### 基础用法
 
