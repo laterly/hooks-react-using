@@ -83,7 +83,7 @@ export default Example;
 
 ```typescript
 const [
-    weakMapRef.current,
+    weakMap,
     { set, setAll, get, has, deleteKey, clear, reset },
   ]; = useWeakMap();
 ```
