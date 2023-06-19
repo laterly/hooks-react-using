@@ -21,24 +21,24 @@ interface useTaskQueueOptions {
 }
 
 function useTaskQueue(
-  initialTasks: Task[],
+  initialTasks?: Task[],
   options?: useTaskQueueOptions,
 ): TaskQueue {
   const { onlog } = options || {};
-  const queueRef = useRef<Task[]>(initialTasks);
-  const [queue, setQueue] = useState<Task[]>(initialTasks);
+  const queueRef = useRef<Task[]>(initialTasks || []);
+  const [queue, setQueue] = useState<Task[]>(initialTasks || []);
   const [runningTask, setRunningTask] = useState<Task | null>(null);
 
   useEffect(() => {
-    queueRef.current = initialTasks;
+    queueRef.current = initialTasks || [];
   }, [initialTasks]);
 
   useEffect(() => {
     async function runNextTask() {
       if (!runningTask && queue.length > 0) {
-        const nextTask = queue[0];
+        const [nextTask, ...rest] = queue;
         setRunningTask(nextTask);
-        setQueue(prevQueue => prevQueue.slice(1));
+        setQueue(rest);
         try {
           await nextTask.run?.();
           onlog?.(`Completed task ${nextTask.id}: ${nextTask.name}`);
