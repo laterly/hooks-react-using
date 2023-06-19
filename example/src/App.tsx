@@ -44,6 +44,7 @@ import UseSetDemo from './demo/use-set';
 import UseWeakSetDemo from './demo/use-weak-set'; 
 import UseQueuqDemo from './demo/use-queue';
 import UseTaskQueueDemo from './demo/use-task-queue';
+import UseArrayDemo from './demo/use-array';
 const App: React.FC = () => {
   return (
     <>
@@ -137,6 +138,8 @@ const App: React.FC = () => {
       <UseQueuqDemo />
       <h3>UseTaskQueueDemo</h3>
       <UseTaskQueueDemo />
+      <h3>UseArrayDemo</h3>
+      <UseArrayDemo />
     </>
   );
 };

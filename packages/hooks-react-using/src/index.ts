@@ -7,6 +7,7 @@ import useLocalStorageState from './state/use-local-storage-state';
 import useSessionStorageState from './state/use-session-storage-state';
 import usePrevious from './state/use-previous';
 import useBoolean from './state/use-boolean';
+import useArray from './state/use-array';
 import useCountDown from './state/use-count-down';
 import useRafCountDown from './state/use-raf-count-down';
 import useLatest from './state/use-latest';
@@ -57,6 +58,7 @@ export {
   useSessionStorageState,
   usePrevious,
   useBoolean,
+  useArray,
   useCountDown,
   useRafCountDown,
   useLatest,
