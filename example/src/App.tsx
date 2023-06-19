@@ -41,6 +41,7 @@ import UseMapDemo from './demo/use-map';
 import UseWeakMapDemo from './demo/use-weak-map';
 import UseSetDemo from './demo/use-set';
 import UseWeakSetDemo from './demo/use-weak-set'; 
+import UseQueuqDemo from './demo/use-queue';
 import UseTaskQueueDemo from './demo/use-task-queue';
 const App: React.FC = () => {
   return (
@@ -129,6 +130,8 @@ const App: React.FC = () => {
       <UseSetDemo />
       <h3>UseWeakSetDemo</h3>
       <UseWeakSetDemo />
+      <h3>UseQueuqDemo</h3>
+      <UseQueuqDemo />
       <h3>UseTaskQueueDemo</h3>
       <UseTaskQueueDemo />
     </>

@@ -79,6 +79,7 @@ import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
 - [`useWeakMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-weak-map/useWeakMap.md) &mdash; useMap 管理 new WeakMap() 创建的映射对象的状态，弱引用版本的 Map
 - [`useSet`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-set/useSet.md) &mdash; useSet 管理 new Set() 集合类型的数据结构
 - [`useWeakSet`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-weak-set/useWeakSet.md) &mdash; useWeakSet 管理 new WeakSet() 集合类型的数据结构,弱引用版本的 Set
+- [`useQueue`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-queue/useQueue.md) &mdash; useQueue 简单的队列，用于管理队列数据结构
   <br/>
 
 #### `Effect`

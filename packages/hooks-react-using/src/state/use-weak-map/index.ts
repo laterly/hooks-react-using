@@ -1,13 +1,13 @@
 import { useState, useCallback } from 'react';
 import { isEqual, isObject, isWeakMap } from 'lodash-es';
 
-type UseWeakMapEntry<K extends WeakKey, V> = [key: K, value: V];
+type UseWeakMapEntry<K extends object, V> = [key: K, value: V];
 
-type UseWeakMapEntryState<K extends WeakKey, V> =
+type UseWeakMapEntryState<K extends object, V> =
   | Iterable<UseWeakMapEntry<K, V>>
   | WeakMap<K, V>;
 
-type UseMapActions<K extends WeakKey, V> = {
+type UseMapActions<K extends object, V> = {
   set: (key: K, value: V) => void;
   setAll: (entries: Iterable<[K, V]>) => void;
   get: (key: K) => V | undefined;
@@ -17,16 +17,16 @@ type UseMapActions<K extends WeakKey, V> = {
   reset: (initialEntry?: UseWeakMapEntryState<K, V>) => void;
 };
 
-type UseWeakMapReturn<K extends WeakKey, V> = UseMapActions<K, V>;
+type UseWeakMapReturn<K extends object, V> = UseMapActions<K, V>;
 
-const initialEntryMap = <K extends WeakKey, V>(
+const initialEntryMap = <K extends object, V>(
   initialEntry?: UseWeakMapEntryState<K, V>,
 ): WeakMap<K, V> => {
   let curMap;
   if (!initialEntry) {
     curMap = new WeakMap();
   } else if (isWeakMap(initialEntry)) {
-    curMap = new WeakMap(initialEntry as Iterable<readonly [object, V]>);
+    curMap = initialEntry;
   } else if (Array.isArray(initialEntry)) {
     curMap = new WeakMap(initialEntry as Iterable<readonly [object, V]>);
   } else if (initialEntry instanceof WeakMap) {
@@ -39,7 +39,7 @@ const initialEntryMap = <K extends WeakKey, V>(
   return curMap as WeakMap<K, V>;
 };
 
-const useWeakMap = <K extends WeakKey, V>(
+const useWeakMap = <K extends object, V>(
   initialEntry?: UseWeakMapEntryState<K, V>,
 ): UseWeakMapReturn<K, V> => {
   const [weakMap, setWeakMap] = useState(() => {
