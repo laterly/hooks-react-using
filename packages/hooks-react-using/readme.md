@@ -6,18 +6,61 @@
     <a href="https://www.npmjs.com/package/hooks-react-using">
        <img src="https://img.shields.io/npm/v/hooks-react-using.svg" alt="npm package" />
     </a>
+     <a href="https://github.com/laterly/hooks-react-using/">
+       <img src="https://img.shields.io/github/stars/laterly/hooks-react-using?style=social" alt="github stars" />
+    </a>
   </sup>
-  <pre>npm i <a href="https://www.npmjs.com/package/hooks-react-using">hooks-react-using</a></pre>
 </div>
 
-### Lifecycles
+<!-- ## hooks-react-using
+
+![npm](https://img.shields.io/npm/v/hooks-react-using)
+![GitHub stars](https://img.shields.io/github/stars/laterly/hooks-react-using?style=social) -->
+
+
+## Features
+
+* 封装了常用React Hooks的库
+* 更轻松地管理组件中的状态和逻辑
+* 支持 TypeScript
+
+
+## Install
+
+by using `npm`:
+
+```bash
+$ npm install hooks-react-using --save
+```
+
+by using `yarn`:
+
+```bash
+$ yarn add hooks-react-using
+```
+
+by using `pnpm`:
+
+```bash
+$ pnpm install hooks-react-using --save
+```
+
+
+## Basic usage
+
+```ts
+import { useToggle, useCountDown, useClickOutside } from 'hooks-react-using';
+```
+
+## API Hooks
+
+#### `Lifecycles`
 
 - [`useMount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-mount/useMount.md) &mdash; useMount 只在组件初始化时执行。
 - [`useUnmount`](https://github.com/laterly/hooks-react-using/blob/master/docs/life-cycle/use-unmount/useUnmount.md) &mdash; useUnmount 在组件卸载时执行的。
   <br/>
-  <br/>
 
-### State
+#### `State`
 
 - [`useSetState`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-set-state/useSetState.md) &mdash; useSetState 管理 object 类型 state
 - [`useDebounce`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-debounce/useDebounce.md) &mdash; useDebounce 控制值在多次更新的防抖。
@@ -31,10 +74,16 @@
 - [`useRafCountDown`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-raf-count-down/useRafCountDown.md) &mdash; useRafCountDown 可用于实现倒计时，基于 requestAnimationFrame 实现
 - [`useLatest`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-latest/useLatest.md) &mdash; 获取一个值的最新引用
 - [`useStableState`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-stable-state/useStableState.md) &mdash; useStableState 与 useState 类似，在 state 是最新值并且 setState 和最新值相等时会阻止 setState
-  <br/>
+- [`useForceUpdate`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-force-update/useForceUpdate.md) &mdash; useForceUpdate 强制组件重新渲染
+- [`useMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-map/useMap.md) &mdash; useMap 管理 new Map() 创建的映射对象的状态
+- [`useWeakMap`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-weak-map/useWeakMap.md) &mdash; useMap 管理 new WeakMap() 创建的映射对象的状态，弱引用版本的 Map
+- [`useSet`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-set/useSet.md) &mdash; useSet 管理 new Set() 集合类型的数据结构
+- [`useWeakSet`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-weak-set/useWeakSet.md) &mdash; useWeakSet 管理 new WeakSet() 集合类型的数据结构,弱引用版本的 Set
+- [`useQueue`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-queue/useQueue.md) &mdash; useQueue 简单的队列，用于管理队列数据结构
+- [`useTaskQueue`](https://github.com/laterly/hooks-react-using/blob/master/docs/state/use-task-queue/useTaskQueue.md) &mdash; useTaskQueue 任务队列，用于管理队列数据结构，主要处理异步任务的队列
   <br/>
 
-### Effect
+#### `Effect`
 
 - [`useWatchEffect`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-watch-effect/useWatchEffect.md) &mdash; useWatchEffect 与 useEffect 类似，可以观察哪个依赖变化触发了 useEffect 的执行，观察依赖变更的新值和旧值，并且可以取消观察。
 - [`useWatchLayoutEffect`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-watch-layout-effect/useWatchLayoutEffect.md) &mdash; useWatchLayoutEffect 与 useLayoutEffect 类似，可以观察哪个依赖变化触发了 useEffect 的执行，观察依赖变更的新值和旧值，并且可以取消观察。
@@ -58,9 +107,8 @@
 - [`useIntervalFn`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-interval-fn/useIntervalFn.md) &mdash; useIntervalFn 定时器执行一个函数
 - [`useRafIntervalFn`](https://github.com/laterly/hooks-react-using/blob/master/docs/effect/use-raf-interval-fn/useRafIntervalFn.md) &mdash; useRafIntervalFn 定时器执行一个函数，基于 requestAnimationFrame 实现
   <br/>
-  <br/>
 
-### Elements
+#### `Elements`
 
 - [`useClickOutside`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-click-outside/useClickOutside.md) &mdash; useClickOutside 监听点击目标元素外部时执行某个回调函数，点击事件也可以自定义，可以是其它的鼠标事件
 - [`useElementSize`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-element-size/useElementSize.md) &mdash; useElementSize 可以用于获取DOM元素的尺寸信息
@@ -69,3 +117,6 @@
 - [`useTitle`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-title/useTitle.md) &mdash; useTitle 用来动态修改网页的标题
 - [`useDocumentVisibility`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-document-visibility/useDocumentVisibility.md) &mdash; useDocumentVisibility 检测当前页面是否处于活动状态（即当前窗口的可见性）
 - [`useEventListener`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-event-listener/useEventListener.md) &mdash; useEventListener 用于封装原生的 addEventListener 方法，使得在函数式组件中添加事件监听器更加方便
+- [`useLongPress`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-long-press/useLongPress.md) &mdash; useLongPress 用于在长按某个元素时触发回调函数
+- [`useFocusWithin`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-focus-within/useFocusWithin.md) &mdash; useFocusWithin 监听元素的焦点变化
+- [`useScrollLock`](https://github.com/laterly/hooks-react-using/blob/master/docs/elements/use-scroll-lock/useScrollLock.md) &mdash; useScrollLock 可以用来禁止页面滚动

@@ -30,19 +30,19 @@
 by using `npm`:
 
 ```bash
-$ npm install hooks-react-using --save
+npm install hooks-react-using --save
 ```
 
 by using `yarn`:
 
 ```bash
-$ yarn add hooks-react-using
+yarn add hooks-react-using
 ```
 
 by using `pnpm`:
 
 ```bash
-$ pnpm install hooks-react-using --save
+pnpm install hooks-react-using --save
 ```
 
 
