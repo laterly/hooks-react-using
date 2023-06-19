@@ -1,5 +1,12 @@
-import { useTaskQueue } from "../../../../packages/hooks-react-using/src";
-function App() {
+# useTaskQueue
+
+useTaskQueue 任务队列，用于管理队列数据结构，主要处理异步任务的队列
+
+### 基础用法
+
+```tsx
+import { useTaskQueue } from "hooks-react-using";
+function Example() {
   function handleLog(message: string) {
     console.log(`[${new Date().toISOString()}] ${message}`);
   }
@@ -75,4 +82,50 @@ function App() {
   );
 }
 
-export default App;
+export default Example;
+
+```
+
+## API
+
+```typescript
+const { queue, enqueue, dequeue, running, peek, first, last, size, isEmpty } = useTaskQueue(initialTasks, {
+    onlog: (message)=>{},
+    onSuccess: (task) => {},
+    onError(task, error) {},
+});
+```
+
+## 参数类型
+
+```typescript
+interface Task {
+  id?: number;
+  name?: string;
+  run?: () => void | Promise<void>;
+  extra?: Record<string, any>; //支持额外数据
+}
+
+interface TaskQueueReturn {
+  queue: Task[];
+  enqueue: (task: Task) => void;
+  dequeue: () => Task | undefined;
+  peek: () => Task | undefined;
+  size: number;
+  first: Task | null;
+  last: Task | null;
+  running: Task | null;
+  isEmpty: boolean;
+}
+
+interface useTaskQueueOptions {
+  onlog?: (message: string) => void;
+  onSuccess?: (task: Task) => void;
+  onError?: (task: Task, error: string) => void;
+}
+
+function useTaskQueue(
+  initialTasks?: Task[],
+  options?: useTaskQueueOptions,
+): TaskQueueReturn;
+```

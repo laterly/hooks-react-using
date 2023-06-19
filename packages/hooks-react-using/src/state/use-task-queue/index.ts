@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
 interface Task {
-  id: number;
-  name: string;
+  id?: number;
+  name?: string;
   run?: () => void | Promise<void>;
+  extra?: Record<string, any>; //支持额外数据
 }
 
-interface TaskQueue {
+interface TaskQueueReturn {
+  queue: Task[];
   enqueue: (task: Task) => void;
-  dequeue: () => void;
+  dequeue: () => Task | undefined;
+  peek: () => Task | undefined;
   size: number;
   first: Task | null;
   last: Task | null;
@@ -17,14 +20,16 @@ interface TaskQueue {
 }
 
 interface useTaskQueueOptions {
-  onlog: (message: string) => void;
+  onlog?: (message: string) => void;
+  onSuccess?: (task: Task) => void;
+  onError?: (task: Task, error: string) => void;
 }
 
 function useTaskQueue(
   initialTasks?: Task[],
   options?: useTaskQueueOptions,
-): TaskQueue {
-  const { onlog } = options || {};
+): TaskQueueReturn {
+  const { onlog, onSuccess, onError } = options || {};
   const queueRef = useRef<Task[]>(initialTasks || []);
   const [queue, setQueue] = useState<Task[]>(initialTasks || []);
   const [runningTask, setRunningTask] = useState<Task | null>(null);
@@ -41,13 +46,15 @@ function useTaskQueue(
         setQueue(rest);
         try {
           await nextTask.run?.();
-          onlog?.(`Completed task ${nextTask.id}: ${nextTask.name}`);
+          onlog?.(`Completed task ${nextTask?.id}: ${nextTask?.name}`);
+          onSuccess?.(nextTask);
         } catch (error: any) {
           onlog?.(
-            `Error in task ${nextTask.id}: ${
+            `Error in task ${nextTask?.id}: ${
               error?.message || error?.toString()
             }`,
           );
+          onError?.(nextTask, error?.message || error?.toString());
         } finally {
           setRunningTask(null);
         }
@@ -68,8 +75,18 @@ function useTaskQueue(
       );
       return;
     }
-    setQueue(prevQueue => prevQueue.slice(1));
+    const [first, ...rest] = queue;
+    setQueue(rest);
+    return first;
   }, [runningTask, queue, onlog]);
+
+  const peek = useCallback((): Task | undefined => {
+    if (queue.length === 0) {
+      return undefined;
+    }
+
+    return queue[0];
+  }, [queue]);
 
   const queueState = useMemo(() => {
     return {
@@ -79,10 +96,13 @@ function useTaskQueue(
       isEmpty: queue.length === 0,
     };
   }, [queue]);
+  
 
   return {
+    queue,
     enqueue,
     dequeue,
+    peek,
     running: runningTask,
     ...queueState,
   };
