@@ -33,7 +33,7 @@ function App() {
   const { enqueue, dequeue, running, first, last, size } = useTaskQueue(
     initialTasks,
     {
-      log: handleLog,
+      onlog: handleLog,
     }
   );
 
