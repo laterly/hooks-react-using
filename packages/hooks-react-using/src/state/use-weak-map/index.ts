@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { isEqual, isWeakMap } from 'lodash-es';
+import { isEqual, isObject, isWeakMap } from 'lodash-es';
 
 type UseWeakMapEntry<K extends WeakKey, V> = [key: K, value: V];
 
@@ -56,6 +56,9 @@ const useWeakMap = <K extends WeakKey, V>(
   const update = useCallback(() => setState(val => !val), []);
 
   const set = useCallback((key: K, value: V) => {
+    if (!isObject(key)) {
+      return;
+    }
     if (isEqual(weakMap.get(key), value)) {
       return;
     }
@@ -65,7 +68,9 @@ const useWeakMap = <K extends WeakKey, V>(
 
   const setAll = useCallback((newData: Iterable<[K, V]>) => {
     for (const [entry, value] of newData) {
-      weakMap.set(entry, value);
+      if (isObject(entry)) {
+        weakMap.set(entry, value);
+      }
     }
     update();
   }, []);
@@ -82,21 +87,41 @@ const useWeakMap = <K extends WeakKey, V>(
     update();
   }, []);
 
-  const get = useCallback((key: K) => {
-    return weakMap?.get(key);
-  }, [weakMap]);
+  const get = useCallback(
+    (key: K) => {
+      if (!isObject(key)) {
+        return;
+      }
+      return weakMap?.get(key);
+    },
+    [weakMap],
+  );
 
-  const has = useCallback((key: K) => weakMap?.has(key), [weakMap]);
+  const has = useCallback(
+    (key: K) => {
+      if (!isObject(key)) {
+        return false;
+      }
+      return weakMap?.has(key);
+    },
+    [weakMap],
+  );
 
-  const deleteKey = useCallback((key: K) => {
-    if (weakMap?.has(key)) {
-      weakMap.delete(key);
-    }
-    update();
-  }, [weakMap]);
+  const deleteKey = useCallback(
+    (key: K) => {
+      if (!isObject(key)) {
+        return;
+      }
+      if (weakMap?.has(key)) {
+        weakMap.delete(key);
+      }
+      update();
+    },
+    [weakMap],
+  );
 
   const clear = useCallback(() => {
-    setWeakMap(new WeakMap);
+    setWeakMap(new WeakMap());
     update();
   }, []);
 

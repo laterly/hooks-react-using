@@ -17,6 +17,7 @@ import useWeakMap from './state/use-weak-map';
 import useSet from './state/use-set';
 import useWeakSet from './state/use-weak-set';
 import useToggle from './state/use-toggle';
+import useTaskQueue from './state/use-task-queue';
 import useWatchEffect from './effect/use-watch-effect';
 import useDeepWatchEffect from './effect/use-deep-watch-effect';
 import useWatchLayoutEffect from './effect/use-watch-layout-effect';
@@ -65,6 +66,7 @@ export {
   useWeakMap,
   useSet,
   useWeakSet,
+  useTaskQueue,
 };
 export {
   useWatchEffect,
