@@ -1,4 +1,4 @@
-import { useArray } from "../../../../packages/hooks-react-using/dist";
+import { useArray } from "../../../../packages/hooks-react-using/src";
 
 function MyComponent() {
   const [array, { push, pop, unshift, shift, splice, concat, reverse, sort }] =
