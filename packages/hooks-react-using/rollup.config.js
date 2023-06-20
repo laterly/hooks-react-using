@@ -1,5 +1,5 @@
 import path from 'path';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -9,17 +9,25 @@ const env = process.env.NODE_ENV;
 export default [
   {
     input: './src/index.ts',
-    external: ['lodash'],
+    external: ['react', 'react-dom', 'lodash'],
     output: [
       {
         dir: 'dist',
         format: 'cjs',
         entryFileNames: '[name].cjs.js',
+        sourcemap: env === 'development' ? true : false,
+        globals: {
+          react: 'React'
+        }
       },
       {
         dir: 'dist',
         format: 'esm',
         entryFileNames: '[name].esm.js',
+        sourcemap: env === 'development' ? true : false,
+        globals: {
+          react: 'React'
+        }
       },
       {
         dir: 'dist',
@@ -27,10 +35,13 @@ export default [
         name: 'index',
         entryFileNames: '[name].umd.js',
         sourcemap: env === 'development' ? true : false,
+        globals: {
+          react: 'React'
+        }
       },
     ],
     plugins: [
-      resolve(),
+      nodeResolve(),
       commonjs(),
       typescript({
         exclude: 'node_modules/**',
