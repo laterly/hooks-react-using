@@ -1,7 +1,6 @@
 import React from "react";
 import UseMount from "./demo/use-mount";
 import UseSetStateDemo from "./demo/use-set-state";
-import UseProxyStateDemo from './demo/use-proxy';
 import UseWatchEffectDemo from "./demo/use-watch-effect";
 import UseDeepWatchEffectDemo from './demo/use-deep-watch-effect';
 import UseDebounceFnDemo from "./demo/use-debounce-fn";
@@ -52,8 +51,6 @@ const App: React.FC = () => {
       <UseMount />
       <h3>UseSetStateDemo</h3>
       <UseSetStateDemo />
-      <h3>UseProxyStateDemo</h3>
-      <UseProxyStateDemo />
       <h3>UseWatchEffectDemo</h3>
       <UseWatchEffectDemo />
       <h3>UseDebounceFnDemo</h3>
